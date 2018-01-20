@@ -264,11 +264,24 @@
 			position: relative;
 			background-color: #121212;
 			overflow: hidden;
+			&:after {
+                content: '';
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                right: 0;
+                left: 0;
+                background-color: rgba(0,0,0,0.4);
+                pointer-events: none;
+                z-index: 1;
+            }
 			.img-background {
 				position: absolute;
-				top: -100px;
-				bottom: -100px;
-				height: calc(~"100% + 300px");
+				top: 0;
+				left: 0;
+				bottom: auto;
+				width: 100%;
+				height: 100%;
 				z-index: 1;
 				max-width: none;
 			}
@@ -834,17 +847,7 @@
     /********************* HOME PAGE ***********************/
         .background-slide {
             .slide-item {
-                &:after {
-                    content: '';
-                    position: absolute;
-                    top: 0;
-                    bottom: 0;
-                    right: 0;
-                    left: 0;
-                    background-color: rgba(0,0,0,0.4);
-                    pointer-events: none;
-                    z-index: 1;
-                }
+                
                 .img-background {
                     top: auto;
                     bottom: auto;
