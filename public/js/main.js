@@ -1,12 +1,12 @@
 jQuery(function($) {
     "use strict";
 
-    var gamba = window.gamba || {};
+    var learnEnglish = window.learnEnglish || {};
 
     /*=======================================
     =             MAIN FUNCTION             =
     =======================================*/
-    gamba.smoothScroll = function() {
+    learnEnglish.smoothScroll = function() {
         // Select all links with hashes
         $('a[href*="#"]')
           // Remove links that don't actually link to anything
@@ -45,7 +45,7 @@ jQuery(function($) {
           });
     };
 
-    gamba.headerFunction = function() {
+    learnEnglish.headerFunction = function() {
         //js for menu PC
         // Add class fixed for menu when scroll
         var window_height = $(window).height();
@@ -135,7 +135,7 @@ jQuery(function($) {
         });
     };
 
-    gamba.mainFunction = function() {
+    learnEnglish.mainFunction = function() {
 
         // ----------------------- WOW-JS --------------------------- //
         new WOW().init();
@@ -232,7 +232,7 @@ jQuery(function($) {
             }
     };
 
-    gamba.home_slider = function() {
+    learnEnglish.home_slider = function() {
         
         $('.background-slide').slick({
             dots: true,
@@ -271,17 +271,55 @@ jQuery(function($) {
 
     };
 
+    learnEnglish.uploader = function() {
+        var fc = null, sc = null, flat = false;
 
+        $(".list-keywords .keyword").click( function(){
+            if( $(this).hasClass("correct") || $(this).hasClass("correct") || $(this).hasClass("is-selected") ) return;
+            if( flat == true) return;
+
+            if( fc == null ) {
+                fc = $(this);
+                fc.addClass("correct");
+            } else {
+                sc = $(this);
+                //console.log( fc.attr("idKey") + "   " +  sc.attr("idKey") );
+                if( fc.attr("idKey") == sc.attr("idKey") ) {
+                    sc.addClass("correct");
+
+                    flat = true;
+                    setTimeout(function(){ 
+                        flat = false;
+                        fc.addClass("is-selected fadeOut").removeClass("correct").removeClass("wrong");
+                        sc.addClass("is-selected fadeOut").removeClass("correct").removeClass("wrong");
+                        fc = sc = null;
+                    }, 500);
+                } else {
+                    sc.addClass("wrong");
+
+                    flat = true;
+                    setTimeout(function(){ 
+                        flat = false;
+                        fc.removeClass("correct").removeClass("wrong");
+                        sc.removeClass("correct").removeClass("wrong");
+                        fc = sc = null;
+                    }, 500);
+                }
+            }
+
+        });
+    };
 
     /*======================================
     =            INIT FUNCTIONS            =
     ======================================*/
 
     $(document).ready(function() {
-        gamba.smoothScroll();
-        gamba.headerFunction();
-        gamba.mainFunction();
-        gamba.home_slider();
+        learnEnglish.smoothScroll();
+        learnEnglish.headerFunction();
+        learnEnglish.mainFunction();
+        learnEnglish.home_slider();
+        learnEnglish.uploader();
     });
 
     /*=====  End of INIT FUNCTIONS  ======*/
