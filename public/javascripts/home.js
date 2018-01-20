@@ -7,7 +7,6 @@ firebaseConfig = {
   messagingSenderId: "1097886600472"
 }
 
-
 angular
   .module('LearningEnglish', ['firebase'])
   .controller('shareController', ['$scope', '$window', '$firebaseObject', '$firebaseArray', '$http', shareController]);
@@ -71,23 +70,25 @@ function shareController($scope, $window, $firebaseObject, $firebaseArray, $http
       $('img').attr('src', url);
     }
   })
-}
 
-function predict (imageURL) {
-  if(!imageURL) return;
-  app.models.predict(Clarifai.GENERAL_MODEL, imageURL).then(
-    function (response) {
-      // do something with response
-      console.log(response)
-      let results = response.outputs[0].data.concepts;
-      $('.result div').remove();
-      for (let i = 0; i < results.length; i++) {
-        $('.result').append('<div>' + results[i].name + '</div>')
-      }
-    },
-    function (err) {
-      // there was an error
-      console.log(err)
-    }
-  );
+  $scope.cardArr = []
+
+  function predict (imageURL) {
+    if(!imageURL) return;
+    app.models.predict(Clarifai.GENERAL_MODEL, imageURL).then(
+      function (response) {
+        let results = response.outputs[0].data.concepts;
+        $('.result div').remove();
+        for (let i = 0; i < results.length; i++) {
+          $('.result').append('<div>' + results[i].name + '</div>')
+        }
+
+        $.post('/translate-arr', {strArr: JSON.stringify(results.map(x=>x.name))}, function(res){
+          console.log(res)
+        })
+      },
+      function (err) { console.log(err) }
+    );
+  }
+  
 }
