@@ -7,12 +7,12 @@
   </title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="/lib/uploader/uploader.css">
-  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link rel='stylesheet' href='/css/styles.css' />
 
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 
-  <script src="/lib/angularjs/angular.min.js"></script>
+  <script src="/libs/angularjs/angular.min.js"></script>
   <script src="//www.gstatic.com/firebasejs/4.0.0/firebase.js"></script>
   <script src="//cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
 
@@ -20,7 +20,7 @@
   <script type="text/javascript" src="https://sdk.clarifai.com/js/clarifai-latest.js"></script>
   <script src="/lib/uploader/uploader.js"></script>
 
-  <script type="text/javascript" src="/javascripts/home.js"></script>
+  <script type="text/javascript" src="/js/home.js"></script>
 </head>
 
 <style>
@@ -56,10 +56,8 @@
 </style>
 
 <body ng-controller="shareController">
-  <div class="col-xs-6">
-    <div>
-      <img src="" class="hide" alt="img" width="200" height="200" style="object-fit:contain">
-    </div>
+  <div class="col-xs-12" ng-show="isChoosingImage">
+    
     <input type="text" id="input">
 
     <button id="button">go go go</button>
@@ -74,8 +72,14 @@
     </div>
 
   </div>
-
-  <div class="col-xs-6 result" style="font-size:20px; font-weight:bold"></div>
+  <div>
+    <img src="" class="hide" alt="img" width="200" height="200" style="object-fit:contain">
+  </div>
+  <div class="container-fluid" style="font-size:20px; font-weight:bold" ng-show="!isChoosingImage">
+    <div ng-repeat="card in cardArr" class="col-xs-3" style="height:100px">
+      {{ card }}
+    </div>
+  </div>
 
 </body>
 

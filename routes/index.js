@@ -51,7 +51,6 @@ router.post('/translate-arr', function (req, res, next) {
 
 function translateText(text, callback) {
   translate(text, { from: 'en', to: 'vi' }).then(res => {
-    console.log(res.text);
     return callback(res.text)
   }).catch(err => {
     console.error(err);

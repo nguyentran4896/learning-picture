@@ -21,6 +21,7 @@ function shareController($scope, $window, $firebaseObject, $firebaseArray, $http
   var databaseRef = firebase.database().ref();
 
   $scope.series = [];
+  $scope.isChoosingImage = true;
 
   $scope.array = $firebaseArray(firebase.database().ref());
 
@@ -97,8 +98,12 @@ function shareController($scope, $window, $firebaseObject, $firebaseArray, $http
           $('.result').append('<div>' + results[i].name + '</div>')
         }
 
-        $.post('/translate-arr', {strArr: JSON.stringify(results.map(x=>x.name))}, function(res){
-          console.log(res)
+        $.post('/translate-arr', {strArr: JSON.stringify(results.map(x=>x.name).splice(0,10))}, function(res){
+          $scope.cardArr = res.arr
+          console.log($scope.cardArr)
+
+          $scope.isChoosingImage = false
+          $scope.$apply()
         })
       },
       function (err) { console.log(err) }
