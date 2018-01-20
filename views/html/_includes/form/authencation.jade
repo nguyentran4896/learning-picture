@@ -4,17 +4,17 @@
             .wrapper-model-content
                 .main-titles-2.text-center
                     .title Register
-                    form.contact-form#contactForm(novalidate)
+                    form.contact-form#register-form(novalidate)
                         .row
                             .col-sm-12
                                 .form-group
                                     label.form-label EMAIL <span class="highlight">*</span>
-                                    input.form-control#email(type="email", required data-validation-required-message="Please enter your email address.")
+                                    input.form-control#r-email(type="email", required data-validation-required-message="Please enter your email address.")
                                     p.help-block.text-danger
                             .col-sm-12
                                 .form-group
                                     label.form-label PASSWORD <span class="highlight">*</span>
-                                    input.form-control#email(type="password", required data-validation-required-message="Please enter your password.")
+                                    input.form-control#r-pasword(type="password", required data-validation-required-message="Please enter your password.")
                                     p.help-block.text-danger
                         #register.margin-top-20
                             button.btn.btn-maincolor(type="submit") Submit
@@ -28,17 +28,17 @@
             .wrapper-model-content
                 .main-titles-2.text-center
                     .title Login
-                    form.contact-form#contactForm(novalidate)
+                    form.contact-form#login-form(novalidate)
                         .row
                             .col-sm-12
                                 .form-group
                                     label.form-label EMAIL <span class="highlight">*</span>
-                                    input.form-control#email(type="email", required data-validation-required-message="Please enter your email address.")
+                                    input.form-control#l-email(type="email", required data-validation-required-message="Please enter your email address.")
                                     p.help-block.text-danger
                             .col-sm-12
                                 .form-group
                                     label.form-label PASSWORD <span class="highlight">*</span>
-                                    input.form-control#email(type="password", required data-validation-required-message="Please enter your password.")
+                                    input.form-control#l-password(type="password", required data-validation-required-message="Please enter your password.")
                                     p.help-block.text-danger
                         #register.margin-top-20
                             button.btn.btn-maincolor(type="submit") Login
