@@ -38,7 +38,6 @@ function shareController($scope, $window, $firebaseObject, $firebaseArray, $http
   $("#drop-area").dmUploader({
     onNewFile: function(id, file){
       console.log('Callback: Plugin initialized');
-      console.log(file)
       uploadFileToFirebase(file)
     }
   });

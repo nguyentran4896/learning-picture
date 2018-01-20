@@ -79,7 +79,6 @@ function shareController($scope, $window, $firebaseObject, $firebaseArray, $http
 
   $('button').on('click', function () {
     let url = $('#input').val()
-    console.log(url)
     if (url) {
       predict($('#input').val())
       $('.review-image img').removeClass('hide');
