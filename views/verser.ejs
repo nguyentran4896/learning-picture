@@ -76,8 +76,10 @@
     <img src="" class="hide" alt="img" width="200" height="200" style="object-fit:contain">
   </div>
   <div class="container-fluid" style="font-size:20px; font-weight:bold" ng-show="!isChoosingImage">
-    <div ng-repeat="card in cardArr" class="col-xs-3" style="height:100px">
-      {{ card }}
+    <div ng-repeat="card in array"
+    ng-click="setSelected($index)"
+    class="col-xs-3" style="height:100px;border:1px solid #000; {{ card.userSelect.length > 0? 'background:#ddd':'' }}">
+      {{ card.name }}
     </div>
   </div>
 
