@@ -34,8 +34,22 @@ function shareController($scope, $window, $firebaseObject, $firebaseArray, $http
   //   $scope.series.push($scope.array[$scope.array.length - 1]);
   // });
 
+  $("#drop-area").dmUploader({
+    onNewFile: function(id, file){
+      console.log('Callback: Plugin initialized');
+      console.log(file)
+      uploadFileToFirebase(file)
+    }
+  });
+
   $scope.uploadImage = function (fileInput) {
     let file = $(fileInput)[0].files[0]
+
+    uploadFileToFirebase(file)
+    
+  }
+
+  function uploadFileToFirebase (file) {
     var metadata = {
       contentType: 'image/jpeg',
     };

@@ -6,7 +6,9 @@
     <%= title %>
   </title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/lib/uploader/uploader.css">
   <link rel='stylesheet' href='/stylesheets/style.css' />
+
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 
@@ -16,6 +18,7 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="https://sdk.clarifai.com/js/clarifai-latest.js"></script>
+  <script src="/lib/uploader/uploader.js"></script>
 
   <script type="text/javascript" src="/javascripts/home.js"></script>
 </head>
@@ -30,9 +33,14 @@
     <button id="button">go go go</button>
 
 
-    <form>
+    <!-- <form>
       <input type="file" id="file" name='file' onchange="angular.element(this).scope().uploadImage(this)"/>
-    </form>
+    </form> -->
+
+    <div id="drop-area">
+      <h3>Drag and Drop Files Here<h3/>
+      <input type="file" title="Click to add Files" id="file" name='file' onchange="angular.element(this).scope().uploadImage(this)"/>
+    </div>
 
   </div>
 
