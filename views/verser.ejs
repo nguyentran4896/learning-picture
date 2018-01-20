@@ -57,7 +57,7 @@
 <body ng-controller="shareController">
   <div class="col-xs-12" ng-show="isChoosingImage">
     
-    <input type="text" id="input" value="https://firebasestorage.googleapis.com/v0/b/elpicture-86fb4.appspot.com/o/images%2Fmountains.jpg?alt=media&token=6f9f0939-4e38-4230-9db2-d42ec53e7bf5">
+    <input type="text" id="input" value="https://firebasestorage.googleapis.com/v0/b/elpicture-86fb4.appspot.com/o/images%2Fmountains.jpg?alt=media&token=e2359c6e-69da-4afd-bc35-4b5ca4e8ca39">
 
     <button id="button">go go go</button>
 
@@ -70,16 +70,29 @@
     </div>
 
   </div>
-  <div>
-    <img src="https://firebasestorage.googleapis.com/v0/b/elpicture-86fb4.appspot.com/o/images%2Fmountains.jpg?alt=media&token=d18938bb-d22a-4dcb-a372-e46aa4ed5841" alt="img" width="200" height="200" style="object-fit:contain">
+  <div class="review-image">
+    <img src="https://firebasestorage.googleapis.com/v0/b/elpicture-86fb4.appspot.com/o/images%2Fmountains.jpg?alt=media&token=e2359c6e-69da-4afd-bc35-4b5ca4e8ca39" alt="img" width="200" height="200" style="object-fit:contain">
   </div>
+
+  <style>
+    .card.active {
+      background-color: green;
+    }
+    .card.inactive {
+      background-color: red;
+    }
+    .card.wrong {
+      background-color: #ddd;
+    }
+  </style>
+
   <div class="container-fluid" style="font-size:20px; font-weight:bold" ng-show="!isChoosingImage">
     <div ng-repeat="card in array"
-    ng-click="setSelected($index, card.userSelect)"
-    class="col-xs-3" ng-class="{'active' : card.userSelect == userKey,
-                                '': card.userSelect == '',
-                                'inactive': card.userSelect == '-L3I24ZMd99HW1s6I84e',
-                                'wrong': true
+    ng-click="setSelected($index, card)"
+    class="col-xs-3 card" ng-class="{'active' : card.userSelect == userKey,
+                                '': !card.userSelect,
+                                'inactive': card.userSelect && card.userSelect != userKey,
+                                'wrong': card.isWrong && card.userSelect
                               }"
     style="height:100px;border:1px solid #000;">
       {{ card.name }}
@@ -101,7 +114,7 @@
           <img class="user-avatar" width="30px" style="border-radius:50%"
           src="https://scontent-hkg3-1.xx.fbcdn.net/v/t31.0-1/c282.0.960.960/p960x960/10506738_10150004552801856_220367501106153455_o.jpg?oh=089d9dc6f4956b95e8d8e73fac1c7ea5&oe=5ADA1212" alt="">
         </div>
-      <div class="user-point">Point: {{ 18 + (array | filter:{'userSelect': '-L3I24ZMd99HW1s6I84e'}).length }}</div>
+      <div class="user-point">Point: {{ 18 + (array | filter:{'-userSelect': userKey}).length }}</div>
     </div>
   </div>
 

@@ -108,10 +108,9 @@
 						</div>
 							
 						<div class="list-keywords">
-							<div class="item animated fadeIn" ng-repeat="card in cardArr" ng-click="chooseCard($index)">
-                <div class="keyword"
-                  ng-class="{'is-select': card.userSelect,
-                            '': !card.userSelect}" data-parallax="{&quot;x&quot;: 15, &quot;y&quot;: 15, &quot;rotateZ&quot;: 15}">
+
+							<div class="item" ng-repeat="card in cardArr" ng-click="chooseCard($index)">
+                <div class="keyword" idKey="{{ card.id }}" data-parallax="{&quot;x&quot;: 15, &quot;y&quot;: 15, &quot;rotateZ&quot;: 15}">
 									{{ card.text }}
 								</div>
 							</div>
