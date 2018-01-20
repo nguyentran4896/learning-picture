@@ -16,19 +16,28 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="https://sdk.clarifai.com/js/clarifai-latest.js"></script>
+
+  <script type="text/javascript" src="/javascripts/home.js"></script>
 </head>
 
-<body>
+<body ng-controller="shareController">
   <div class="col-xs-6">
     <div>
       <img src="" class="hide" alt="img" width="200" height="200" style="object-fit:contain">
     </div>
     <input type="text" id="input">
+
     <button id="button">go go go</button>
+
+
+    <form>
+      <input type="file" id="file" name='file' onchange="angular.element(this).scope().uploadImage(this)"/>
+    </form>
+
   </div>
 
   <div class="col-xs-6 result" style="font-size:20px; font-weight:bold"></div>
-  <script type="text/javascript" src="/javascripts/home.js"></script>
+  
 </body>
 
 </html>
