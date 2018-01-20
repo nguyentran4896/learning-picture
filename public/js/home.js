@@ -114,5 +114,17 @@ function homeController($scope, $window, $firebaseObject, $firebaseArray, $http)
       }
     );
   }
+
+  $scope.indexCardChoosing = -1
+
+  $scope.chooseCard = function (index) {
+    if ($scope.indexCardChoosing != -1) {
+      $scope.cardArr[$scope.indexCardChoosing].userSelect = false
+      $scope.indexCardChoosing = -1
+    } else {
+      $scope.indexCardChoosing = index
+      $scope.cardArr[$scope.indexCardChoosing].userSelect = true
+    }
+  }
   
 }
