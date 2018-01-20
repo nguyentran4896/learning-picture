@@ -1,23 +1,23 @@
 section.wrapper-upload.padding-top-100.padding-bottom-100
 	.container
 		div(ng-show="isChoosingImage")
-			//- #url-area.url-area
-			//- 	form.main-form
-			//- 		.row
-			//- 			.col-sm-12
-			//- 				.form-group.text-center
-			//- 					h1 Try your own image
-			//- 					p Give us a direct link to a file on the web
-			//- 					input.form-control.border-radius-10(type="text", placeholder="Paste URL")
-			//- 					p.help-block.text-danger
-			//- 			//- #submit.margin-top-20
-			//- 			//-     button.btn.btn-maincolor(type="submit") Submit
-			//- #drop-area.dm-uploader.text-center(style='height: 300px')
-			//- 	.vertical-align
-			//- 		h1 Drag & drop Images here
-			//- 		.btn.btn-maincolor
-			//- 			span Open the file Browser
-			//- 			input#file(type='file', title='Click to add Files', name='file', onchange='angular.element(this).scope().uploadImage(this)', multiple='')
+			#url-area.url-area
+				form.main-form
+					.row
+						.col-sm-12
+							.form-group.text-center
+								h1 Try your own image
+								p Give us a direct link to a file on the web
+								input.form-control.border-radius-10(type="text", placeholder="Paste URL")
+								p.help-block.text-danger
+						//- #submit.margin-top-20
+						//-     button.btn.btn-maincolor(type="submit") Submit
+			#drop-area.dm-uploader.text-center(style='height: 300px')
+				.vertical-align
+					h1 Drag & drop Images here
+					.btn.btn-maincolor
+						span Open the file Browser
+						input#file(type='file', title='Click to add Files', name='file', onchange='angular.element(this).scope().uploadImage(this)', multiple='')
 		.review-image.has-image
 			img(src='https://firebasestorage.googleapis.com/v0/b/elpicture-86fb4.appspot.com/o/images%2Fmountains.jpg?alt=media&token=d18938bb-d22a-4dcb-a372-e46aa4ed5841', alt='img')
 		
