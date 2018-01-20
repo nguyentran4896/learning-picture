@@ -23,6 +23,38 @@
   <script type="text/javascript" src="/javascripts/home.js"></script>
 </head>
 
+<style>
+  /* These are for the single examle */
+
+  .preview-img {
+    width: 64px;
+    height: 64px;
+  }
+
+  form {
+    border: solid #f7f7f9 !important;
+    padding: 1.5rem
+  }
+
+  form.active {
+    border-color: red !important;
+  }
+
+  form .progress {
+    height: 38px;
+  }
+
+  .dm-uploader {
+    border: 0.25rem dashed #A5A5C7;
+  }
+
+  .dm-uploader.active {
+    border-color: red;
+
+    border-style: solid;
+  }
+</style>
+
 <body ng-controller="shareController">
   <div class="col-xs-6">
     <div>
@@ -32,20 +64,19 @@
 
     <button id="button">go go go</button>
 
-
-    <!-- <form>
-      <input type="file" id="file" name='file' onchange="angular.element(this).scope().uploadImage(this)"/>
-    </form> -->
-
-    <div id="drop-area">
-      <h3>Drag and Drop Files Here<h3/>
-      <input type="file" title="Click to add Files" id="file" name='file' onchange="angular.element(this).scope().uploadImage(this)"/>
+    <div id="drop-area" class="dm-uploader text-center" style="height: 300px">
+      <h3>Drag &amp; drop Images here</h3>
+      <div class="btn btn-primary ">
+        <span>Open the file Browser</span>
+        <input type="file" title="Click to add Files" id="file" name='file' onchange="angular.element(this).scope().uploadImage(this)"
+        />
+      </div>
     </div>
 
   </div>
 
   <div class="col-xs-6 result" style="font-size:20px; font-weight:bold"></div>
-  
+
 </body>
 
 </html>
