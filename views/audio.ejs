@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="LearningEnglish">
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="/js/google_speech.js"></script>
+</head>
+
+<body>
+<p id="para">
+  hello
+</p>
+<button id="speak">Speak</button>
+
+<script>
+speechRs.speechinit('Google UK English Female', function(e) {
+    runSpeechRelatedCode();
+});
+
+function runSpeechRelatedCode() {
+  document.getElementById("speak").onclick = function() {
+    speechRs.speak($('#para').text(), function() {
+    }, true);
+  }
+}
+</script>
+</body>
+
+</html>

@@ -8,6 +8,10 @@ router.get('/', function (req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+router.get('/audio', function(req, res, next) {
+  res.render('audio', { title: 'Audio' });
+});
+
 // combine text and translated text in one object
 router.post('/translate-combine', function (req, res, next) {
   let arr = []
