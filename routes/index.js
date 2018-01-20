@@ -8,10 +8,9 @@ router.get('/', function (req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-
 router.get('/audio', function(req, res, next) {
   res.render('audio', { title: 'Audio' });
-}
+});
 
 router.get('/verser', function (req, res, next) {
   res.render('verser', { title: 'Express' });
