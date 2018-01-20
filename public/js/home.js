@@ -127,16 +127,44 @@ function homeController($scope, $window, $firebaseObject, $firebaseArray, $http)
     );
   }
 
-  $scope.indexCardChoosing = -1
+  $scope.fc = null
+  $scope.sc = null
+  $scope.flat = null
 
-  $scope.chooseCard = function (index) {
-    if ($scope.indexCardChoosing != -1) {
-      $scope.cardArr[$scope.indexCardChoosing].userSelect = false
-      $scope.indexCardChoosing = -1
+  $scope.chooseCard = function(idKey) {
+    var itemSelect = $(".list-keywords #keyword_" + idKey);
+
+    if( itemSelect.hasClass("correct") || itemSelect.hasClass("correct") || itemSelect.hasClass("is-selected") ) return;
+    if( $scope.flat == true) return;
+
+    if( $scope.fc == null ) {
+      $scope.fc = itemSelect;
+      $scope.fc.addClass("correct");
     } else {
-      $scope.indexCardChoosing = index
-      $scope.cardArr[$scope.indexCardChoosing].userSelect = true
+      $scope.sc = itemSelect;
+      if( $scope.fc.attr("idKey") == $scope.sc.attr("idKey") ) {
+        $scope.sc.addClass("correct");
+        $scope.flat = true;
+
+        setTimeout(function(){
+          $scope.flat = false;
+          $scope.fc.addClass("is-selected fadeOut").removeClass("correct").removeClass("wrong");
+          $scope.sc.addClass("is-selected fadeOut").removeClass("correct").removeClass("wrong");
+          $scope.fc = $scope.sc = null;
+        }, 500)
+      } else {
+        $scope.sc.addClass("wrong");
+
+        $scope.flat = true;
+
+        setTimeout(function(){
+          $scope.flat = false;
+          $scope.fc.removeClass("correct").removeClass("wrong");
+          $scope.sc.removeClass("correct").removeClass("wrong");
+          $scope.fc = $scope.sc = null;
+        }, 500)
+      }
     }
-  }
+  };
   
 }

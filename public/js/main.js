@@ -293,7 +293,7 @@ jQuery(function($) {
                         fc.addClass("is-selected fadeOut").removeClass("correct").removeClass("wrong");
                         sc.addClass("is-selected fadeOut").removeClass("correct").removeClass("wrong");
                         fc = sc = null;
-                    }, 500);
+                    }, 5000);
                 } else {
                     sc.addClass("wrong");
 
@@ -303,7 +303,7 @@ jQuery(function($) {
                         fc.removeClass("correct").removeClass("wrong");
                         sc.removeClass("correct").removeClass("wrong");
                         fc = sc = null;
-                    }, 500);
+                    }, 5000);
                 }
             }
 

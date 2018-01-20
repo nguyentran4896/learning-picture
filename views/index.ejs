@@ -108,9 +108,8 @@
 						</div>
 							
 						<div class="list-keywords">
-
-							<div class="item" ng-repeat="card in cardArr" ng-click="chooseCard($index)">
-                <div class="keyword" idKey="{{ card.id }}" data-parallax="{&quot;x&quot;: 15, &quot;y&quot;: 15, &quot;rotateZ&quot;: 15}">
+							<div class="item" ng-repeat="card in cardArr">
+                <div class="keyword" id= 'keyword_{{ $index }}' idKey="{{ card.id }}" data-parallax="{&quot;x&quot;: 15, &quot;y&quot;: 15, &quot;rotateZ&quot;: 15}"  ng-click="chooseCard($index)">
 									{{ card.text }}
 								</div>
 							</div>
