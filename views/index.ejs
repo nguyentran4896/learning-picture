@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="LearningEnglish">
 
 <head>
 	<title>Ambition | <%= title %></title>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- FONT CSS-->
-	<link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pacifico">
-	<link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cuprum:400,700">
+	<link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Pacifico">
+	<link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Cuprum:400,700">
 	<link type="text/css" rel="stylesheet" href="/font/font-icon/font-awesome/css/font-awesome.css">
 	<link type="text/css" rel="stylesheet" href="/font/font-icon/font-oganic/flaticon.css">
 	
@@ -16,23 +16,31 @@
 	<link type="text/css" rel="stylesheet" href="/libs/animate/animate.css">
 	<link type="text/css" rel="stylesheet" href="/libs/slick-slider/slick.css">
 	<link type="text/css" rel="stylesheet" href="/libs/slick-slider/slick-theme.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 	<!-- STYLE CSS-->
 	<link type="text/css" rel="stylesheet" href="/css/styles.css">
 	<link type="text/css" rel="stylesheet" href="/css/upload.css">
 	
 	<script src="/libs/jquery/jquery-2.2.4.min.js"></script>
 	
-	<script type="text/javascript" src="https://sdk.clarifai.com/js/clarifai-latest.js"></script>
-	<script src="/lib/uploader/uploader.js"></script>
+
 	<script src="/libs/angularjs/angular.min.js"></script>
 	<script src="//www.gstatic.com/firebasejs/4.0.0/firebase.js"></script>
 	<script src="//cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+  
+	<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="//sdk.clarifai.com/js/clarifai-latest.js"></script>
+	<script src="/lib/uploader/uploader.js"></script>
+  
+	<script type="text/javascript" src="//sdk.clarifai.com/js/clarifai-latest.js"></script>
+	
+	<script src="/js/common.js"></script>
 	<script type="text/javascript" src="/js/home.js"></script>
 </head>
 
-<body ng-controller="shareController">
+<body ng-controller="homeController">
 	<!--BEGIN PAGE LOADER-->
-	<div class="body-wrapper">
+	<div class="body-wrapper" >
 		<!-- WRAPPER CONTENT-->
 		<div class="wrapper-content">
 			<!-- HEADER-->
@@ -67,7 +75,8 @@
 											<div class="form-group text-center">
 												<h1>Try your own image</h1>
 												<p>Give us a direct link to a file on the web</p>
-												<input type="text" placeholder="Paste URL" class="form-control border-radius-10">
+												<input type="text" placeholder="Paste URL" class="form-control border-radius-10"
+												id="url-input">
 												<p class="help-block text-danger"></p>
 											</div>
 										</div>
@@ -78,7 +87,8 @@
 								<div class="vertical-align">
 									<h1>Drag & drop Images here</h1>
 									<div class="btn btn-maincolor"><span>Open the file Browser</span>
-										<input id="file" type="file" title="Click to add Files" name="file" onchange="angular.element(this).scope().uploadImage(this)">
+										<input id="file" type="file" title="Click to add Files"
+										onchange="angular.element(this).scope().uploadImage(this)">
 									</div>
 								</div>
 							</div>
@@ -90,9 +100,9 @@
 						</div>
 							
 						<div class="list-keywords">
-							<div class="item" ng-repeat="card in cardArr">
+							<div class="item animated fadeIn" ng-repeat="card in cardArr">
 								<div class="keyword" data-parallax="{&quot;x&quot;: 15, &quot;y&quot;: 15, &quot;rotateZ&quot;: 15}">
-									{{ card }}
+									{{ card.text }}
 								</div>
 							</div>
 						</div>
@@ -105,7 +115,6 @@
 	</div>
 	<!-- LIBRARY JS-->
 	
-	<script src="/libs/bootstrap/js/bootstrap.min.js"></script>
 	<script src="/libs/smooth-scroll/jquery-smoothscroll.min.js"></script>
 	<script src="/libs/wow-js/wow.min.js"></script>
 	<script src="/libs/slick-slider/slick.min.js"></script>
