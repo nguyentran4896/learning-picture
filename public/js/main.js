@@ -169,16 +169,6 @@ jQuery(function($) {
             }
         });
 
-        // ----------------------- audio, video --------------------------- //
-            if ($("audio").length || $("video").length){
-                $('audio,video').mediaelementplayer({
-                    videoWidth: '100%',
-                    videoHeight: '100%',
-                    enableAutosize: true,
-                    features: ['playpause','current','progress','tracks','volume','fullscreen']
-                });
-            }
-
         // ------------------------- Slick Slider ----------------------- //
 
         // List team info
@@ -230,6 +220,13 @@ jQuery(function($) {
                     
                 }
             }
+
+        // Flip-box
+        $('.flip-card').hover(function(){
+            $(this).addClass('flip');
+        },function(){
+            $(this).removeClass('flip');
+        });
     };
 
     learnEnglish.home_slider = function() {
