@@ -1,0 +1,76 @@
+
+/*----------  0.1. Color  ----------*/
+@text-color: #455255;
+@title-color: #25363a;
+@main-color: #0079bf;
+@border-color: #c7c7c7;
+
+
+/*----------  0.2. Font  ----------*/
+@font-family: 'Cuprum', sans-serif;
+@font-family2: 'Pacifico', cursive;
+@font-size: 16px;
+
+
+
+.circle(@param) {
+    border-radius: @param;
+    -webkit-border-radius: @param;
+    -moz-border-radius: @param;
+}
+
+.transition(@param) {
+    transition: @param;
+    -webkit-transition: @param;
+    -moz-transition: @param;
+    -o-transition: @param;
+}
+
+.l-height(@param) {
+    height: @param;
+    line-height: @param;
+}
+
+.transform(@param) {
+    transform: @param;
+    -webkit-transform: @param;
+    -moz-transform: @param;
+    -ms-transform: @param;
+    -o-transform: @param;
+}
+
+@keyframes spin1 {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spin2 {
+    0% {
+        transform: rotate(72deg);
+    }
+    100% {
+        transform: rotate(-288deg);
+    }
+}
+
+@keyframes spin3 {
+    0% {
+        transform: rotate(-144deg);
+    }
+    100% {
+        transform: rotate(216deg);
+    }
+}
+
+@keyframes spin4 {
+    0% {
+        transform: rotate(216deg);
+    }
+    100% {
+        transform: rotate(-144deg);
+    }
+}
