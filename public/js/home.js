@@ -106,7 +106,7 @@ function homeController($scope, $window, $firebaseObject, $firebaseArray, $http)
           $('.result').append('<div>' + results[i].name + '</div>')
         }
 
-        $.post('/translate-arr', {strArr: JSON.stringify(results.map(x=>x.name).splice(0,5))}, function(res){
+        $.post('/translate-arr', {strArr: JSON.stringify(results.map(x=>x.name).splice(0,5)), convertLanguage: COMMON.getCookie('convertLanguage')}, function(res){
           $scope.cardArr = res.arr
           $scope.$apply()
           $('body').removeClass('loader');

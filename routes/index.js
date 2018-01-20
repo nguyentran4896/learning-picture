@@ -41,8 +41,9 @@ router.post('/translate-combine', function (req, res, next) {
 router.post('/translate-arr', function (req, res, next) {
   let arr = []
   let count = 0
+  let convertLanguage = req.body.convertLanguage
   async.eachSeries(JSON.parse(req.body.strArr), function (text, callback) {
-    translateText(text, function (str) {
+    translateText(text, convertLanguage, function (str) {
       arr.push({
         text: text,
         id: count,
@@ -63,8 +64,8 @@ router.post('/translate-arr', function (req, res, next) {
   })
 });
 
-function translateText(text, callback) {
-  translate(text, { from: 'en', to: 'vi', raw: true }).then(res => {
+function translateText(text, convertLanguage, callback) {
+  translate(text, { from: 'en', to: convertLanguage, raw: true }).then(res => {
     console.log(res)
     return callback(res.text)
   }).catch(err => {

@@ -52,9 +52,26 @@
 								<div class="logo-wrapper"><a href="index.html" class="logo">Ambition</a></div>
 								<nav class="navigation">
 									<ul class="nav-links nav navbar-nav">
-										<li><a href="/" class="main-menu"><span class="text">Home</span></a></li>
-										<li class="active"><a href="javascript:void(0)" class="main-menu"><span class="text">Round 1</span></a></li>
-										<li><a href="javascript:void(0)" class="main-menu"><span class="text">Round 2</span></a></li>
+                    <li>
+                      <a href="/homepage" class="main-menu">
+                        <span class="text">Home</span>
+                      </a>
+                    </li>
+                    <li class="active">
+                      <a href="/search" class="main-menu">
+                        <span class="text">Search By Photo</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/" class="main-menu">
+                        <span class="text">Mapping Word</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/verser" class="main-menu">
+                        <span class="text">Study with friend</span>
+                      </a>
+                    </li>
 									</ul>
 								</nav>
 							</div>
@@ -109,7 +126,7 @@
 							
 						<div class="list-keywords">
 							<div class="item" ng-repeat="card in cardArr">
-                <div class="keyword" id= 'keyword_{{ $index }}' idKey="{{ card.id }}" data-parallax="{&quot;x&quot;: 15, &quot;y&quot;: 15, &quot;rotateZ&quot;: 15}"  ng-click="chooseCard($index)">
+                <div class="keyword" id= 'keyword_{{$index}}' idKey="{{ card.id }}" data-parallax="{&quot;x&quot;: 15, &quot;y&quot;: 15, &quot;rotateZ&quot;: 15}"  ng-click="chooseCard($index)">
 									{{ card.text }}
 								</div>
 							</div>

@@ -27,6 +27,7 @@ function userController($scope, $window, $firebaseObject, $firebaseArray, $http)
 
     ref.orderByChild("email").equalTo($scope.email.toString()).on("child_added", function(snapshot) {
       COMMON.setCookie('userId', snapshot.key)
+      COMMON.setCookie('convertLanguage', 'vi')
 
       databaseRef.child('users/' + snapshot.key).on('value',function(snapshot){
         COMMON.setCookie('userName', snapshot.val().name)

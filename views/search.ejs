@@ -37,6 +37,7 @@
 
   <script src="/js/common.js"></script>
   <script type="text/javascript" src="/js/search.js"></script>
+  <script src="/js/google_speech.js"></script>
 </head>
 
 <body ng-controller="searchController">
@@ -59,18 +60,23 @@
                 <nav class="navigation">
                   <ul class="nav-links nav navbar-nav">
                     <li>
-                      <a href="/" class="main-menu">
+                      <a href="/homepage" class="main-menu">
                         <span class="text">Home</span>
                       </a>
                     </li>
                     <li class="active">
-                      <a href="javascript:void(0)" class="main-menu">
-                        <span class="text">Round 1</span>
+                      <a href="/search" class="main-menu">
+                        <span class="text">Search By Photo</span>
                       </a>
                     </li>
                     <li>
-                      <a href="javascript:void(0)" class="main-menu">
-                        <span class="text">Round 2</span>
+                      <a href="/" class="main-menu">
+                        <span class="text">Mapping Word</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/verser" class="main-menu">
+                        <span class="text">Study with friend</span>
                       </a>
                     </li>
                   </ul>
@@ -124,8 +130,8 @@
 
             <div class="list-keywords">
 
-              <div class="item" ng-repeat="card in cardArr" ng-click="chooseCard($index)">
-                <div class="keyword" idKey="{{ card.id }}" data-parallax="{&quot;x&quot;: 15, &quot;y&quot;: 15, &quot;rotateZ&quot;: 15}">
+              <div class="item" ng-repeat="card in cardArr" >
+                <div class="keyword" idKey="{{ card.id }}" data-parallax="{&quot;x&quot;: 15, &quot;y&quot;: 15, &quot;rotateZ&quot;: 15}" ng-click="speakWord(card.text)">
                   {{ card.text }}
                 </div>
               </div>
@@ -151,8 +157,6 @@
 
   <!-- LOADING SCRIPTS FOR PAGE-->
   <script src="/libs/parallax/jquery.parallax-scroll.min.js"></script>
-
-
 </body>
 
 </html>

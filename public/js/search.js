@@ -118,7 +118,7 @@ function homeController($scope, $window, $firebaseObject, $firebaseArray, $http)
         for (let i = 0; i < results.length; i++) {
           $('.result').append('<div>' + results[i].name + '</div>')
         }
-        $.post('/translate-combine', {strArr: JSON.stringify(results.map(x=>x.name).splice(0,10))}, function(res){
+        $.post('/translate-combine', {strArr: JSON.stringify(results.map(x=>x.name).splice(0,10)), convertLanguage: COMMON.getCookie('convertLanguage')}, function(res){
           $scope.cardArr = res.arr
           $scope.$apply()
           $('body').addClass('loader');
@@ -127,16 +127,11 @@ function homeController($scope, $window, $firebaseObject, $firebaseArray, $http)
     );
   }
 
-  $scope.indexCardChoosing = -1
-
-  $scope.chooseCard = function (index) {
-    if ($scope.indexCardChoosing != -1) {
-      $scope.cardArr[$scope.indexCardChoosing].userSelect = false
-      $scope.indexCardChoosing = -1
-    } else {
-      $scope.indexCardChoosing = index
-      $scope.cardArr[$scope.indexCardChoosing].userSelect = true
-    }
+  $scope.speakWord = function (word) {
+    speechRs.speechinit('Google UK English Female', function(e) {
+        speechRs.speak(word, function() {
+        }, true);
+    });
   }
   
 }
