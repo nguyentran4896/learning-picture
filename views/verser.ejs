@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html ng-app="LearningEnglish">
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/lib/uploader/uploader.css">
+  <link rel='stylesheet' href='/css/styles.css' />
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+  <script src="/libs/angularjs/angular.min.js"></script>
+  <script src="//www.gstatic.com/firebasejs/4.0.0/firebase.js"></script>
+  <script src="//cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="https://sdk.clarifai.com/js/clarifai-latest.js"></script>
+  <script src="/lib/uploader/uploader.js"></script>
+
+  <script type="text/javascript" src="/js/verser.js"></script>
+</head>
+
+<style>
+  /* These are for the single examle */
+
+  .preview-img {
+    width: 64px;
+    height: 64px;
+  }
+
+  form {
+    border: solid #f7f7f9 !important;
+    padding: 1.5rem
+  }
+
+  form.active {
+    border-color: red !important;
+  }
+
+  form .progress {
+    height: 38px;
+  }
+
+  .dm-uploader {
+    border: 0.25rem dashed #A5A5C7;
+  }
+
+  .dm-uploader.active {
+    border-color: red;
+
+    border-style: solid;
+  }
+</style>
+
+<body ng-controller="shareController">
+  <div class="col-xs-12" ng-show="isChoosingImage">
+    
+    <input type="text" id="input" value="https://firebasestorage.googleapis.com/v0/b/elpicture-86fb4.appspot.com/o/images%2Fmountains.jpg?alt=media&token=6f9f0939-4e38-4230-9db2-d42ec53e7bf5">
+
+    <button id="button">go go go</button>
+
+    <div id="drop-area" class="dm-uploader text-center" style="height: 300px">
+      <h3>Drag &amp; drop Images here</h3>
+      <div class="btn btn-primary ">
+        <span>Open the file Browser</span>
+        <input type="file" title="Click to add Files" id="file" name='file' onchange="angular.element(this).scope().uploadImage(this)"
+        />
+      </div>
+    </div>
+
+  </div>
+  <div>
+    <img src="" class="hide" alt="img" width="200" height="200" style="object-fit:contain">
+  </div>
+  <div class="container-fluid" style="font-size:20px; font-weight:bold" ng-show="!isChoosingImage">
+    <div ng-repeat="card in cardArr" class="col-xs-3" style="height:100px">
+      {{ card }}
+    </div>
+  </div>
+
+</body>
+
+</html>

@@ -12,7 +12,7 @@ angular
   .controller('shareController', ['$scope', '$window', '$firebaseObject', '$firebaseArray', '$http', shareController]);
 
 const app = new Clarifai.App({
-  apiKey: 'f02ac3bc8ae24957865d750797e504c5'
+  apiKey: 'e59b033ef81c47de963a93e9cb7e101a'
 });
 
 function shareController($scope, $window, $firebaseObject, $firebaseArray, $http) {
@@ -72,13 +72,14 @@ function shareController($scope, $window, $firebaseObject, $firebaseArray, $http
     }, function(error) { console.log(error) }, function() {
       var downloadURL = uploadTask.snapshot.downloadURL;
       predict(downloadURL)
-      $('img').removeClass('hide');
-      $('img').attr('src', downloadURL);
+      $('.review-image img').removeClass('hide');
+      $('.review-image img').attr('src', downloadURL);
     });
   }
 
   $('button').on('click', function () {
     let url = $('#input').val()
+    console.log(url)
     if(url){
       predict($('#input').val())
       $('img').removeClass('hide');
