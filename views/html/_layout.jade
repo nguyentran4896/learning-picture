@@ -1,0 +1,73 @@
+doctype
+html(lang="en")
+    head
+        title
+            | Ambition
+            = " | "
+            = title
+        meta(http-equiv="content-type", content="text/html; charset=utf-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+
+        // FONT CSS
+
+        link(type="text/css", rel="stylesheet", href="https://fonts.googleapis.com/css?family=Pacifico")
+        link(type="text/css", rel="stylesheet", href="https://fonts.googleapis.com/css?family=Cuprum:400,700")
+        link(type="text/css", rel="stylesheet", href="assets/font/font-icon/font-awesome/css/font-awesome.css")
+        link(type="text/css", rel="stylesheet", href="assets/font/font-icon/font-oganic/flaticon.css")
+
+        // LIBRARY CSS
+        link(type="text/css", rel="stylesheet", href="assets/libs/bootstrap/css/bootstrap.min.css")
+        link(type="text/css", rel="stylesheet", href="assets/libs/animate/animate.css")
+        link(type="text/css", rel="stylesheet", href="assets/libs/slick-slider/slick.css")
+        link(type="text/css", rel="stylesheet", href="assets/libs/slick-slider/slick-theme.css")
+
+        // STYLE CSS
+        link(type="text/css", rel="stylesheet", href="assets/css/layout.css")
+        link(type="text/css", rel="stylesheet", href="assets/css/components.css")
+        link(type="text/css", rel="stylesheet", href="assets/css/responsive.css")
+
+        for page, key in public._data
+            if(current.source == key)
+                for css in page.url_style
+                    if(css.src != undefined)
+                        link(type="text/css", rel="stylesheet", href="#{css.src}")
+
+    body
+        //BEGIN PAGE LOADER
+        .body-wrapper
+
+            // WRAPPER CONTENT
+            .wrapper-content
+                // HEADER
+                header
+                    != partial("_includes/header/header")
+
+                // MAIN CONTENT
+                .main-contents
+                    != yield
+
+
+                // BUTTON BACK TO TOP
+                #back-top
+                    a.link(href="#top")
+                        i.fa.fa-angle-double-up
+
+        // LIBRARY JS
+        script(src="assets/libs/jquery/jquery-2.2.4.min.js")
+        script(src="assets/libs/bootstrap/js/bootstrap.min.js")
+
+        script(src="assets/libs/smooth-scroll/jquery-smoothscroll.min.js")
+        script(src="assets/libs/wow-js/wow.min.js")
+        script(src="assets/libs/slick-slider/slick.min.js")
+
+        
+        // MAIN JS
+        script(src="assets/js/main.js")  
+
+
+        // LOADING SCRIPTS FOR PAGE
+        for page, key in public._data
+            if(current.source == key)
+                for js in page.url_script
+                    if(js.src != undefined)
+                        script(src='#{js.src}')
