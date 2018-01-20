@@ -1,0 +1,19 @@
+section.wrapper-upload.padding-top-100.padding-bottom-100
+	.container
+		#url-area.url-area
+			form.main-form
+				.row
+					.col-sm-12
+						.form-group.text-center
+							h1 Try your own image
+							p Give us a direct link to a file on the web
+							input.form-control.border-radius-10(type="text", placeholder="Paste URL")
+							p.help-block.text-danger
+					//- #submit.margin-top-20
+					//-     button.btn.btn-maincolor(type="submit") Submit
+		#drop-area.dm-uploader.text-center(style='height: 300px')
+			.vertical-align
+				h1 Drag & drop Images here
+				.btn.btn-maincolor
+					span Open the file Browser
+					input#file(type='file', title='Click to add Files', name='file', onchange='angular.element(this).scope().uploadImage(this)', multiple='')
