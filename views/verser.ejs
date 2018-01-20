@@ -83,6 +83,25 @@
       {{ card.name }}
     </div>
   </div>
+<br>
+  <div class="container-fluid">
+    <div class="pull-left">
+      <div class="user-name">
+        <img class="user-avatar" width="30px" style="border-radius:50%"
+        src="https://scontent-hkg3-1.xx.fbcdn.net/v/t1.0-9/18740419_1398808056874032_6423833359628514647_n.jpg?oh=89d30eede3cc2c6756a72ffe42d14f16&oe=5AE1ACB2" alt="">
+        Nguyen 
+      </div>
+      <div class="user-point">Point: {{ 13 + (array | filter:{'userSelect': userKey}).length }}</div>
+    </div>
+
+    <div class="pull-right">
+      <div class="user-name">Nhan
+          <img class="user-avatar" width="30px" style="border-radius:50%"
+          src="https://scontent-hkg3-1.xx.fbcdn.net/v/t31.0-1/c282.0.960.960/p960x960/10506738_10150004552801856_220367501106153455_o.jpg?oh=089d9dc6f4956b95e8d8e73fac1c7ea5&oe=5ADA1212" alt="">
+        </div>
+      <div class="user-point">Point: {{ 18 + (array | filter:{'userSelect': '-L3I24ZMd99HW1s6I84e'}).length }}</div>
+    </div>
+  </div>
 
 </body>
 
