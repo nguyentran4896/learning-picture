@@ -20,19 +20,31 @@ function shareController($scope, $window, $firebaseObject, $firebaseArray, $http
   var storageRef = firebase.storage().ref();
   var databaseRef = firebase.database().ref();
 
-  $scope.userKey = '-L3I1yOdARJ04__UucsK'
+  var wrongDataRef = firebase.database().ref().child('/rooms/-L3Hq7a7tuZZFQK0ex75/-L3Id1Usn6bFi2WJnmFl');
+  var dataRef = firebase.database().ref().child('/rooms/-L3Hfgf52LU1R4YjcR-p/images/-L3JYIHFEqCfAFb4BC8-/array');
+
+  $scope.userKey = COMMON.getCookie('userId');
 
   $scope.series = [];
   $scope.isChoosingImage = false;
 
-  firebase.database().ref().child('/rooms/-L3Hfgf52LU1R4YjcR-p/images/-L3Hq7a7tuZZFQK0ex75/array').on('value',function(snapshot){
-    $scope.array = snapshot.val()
-    $scope.$apply()
+  dataRef.on('value',function(snapshot){
+    $scope.array = snapshot.val().splice(0, 10)
+
+    wrongDataRef.on('value',function(snapshot){
+      $scope.array = $scope.array.concat(snapshot.val())
+      $scope.$apply()
+    });
   });
 
-  $scope.setSelected = function (index, userSelect) {
-    if(userSelect) return;
-    firebase.database().ref().child('/rooms/-L3Hfgf52LU1R4YjcR-p/images/-L3Hq7a7tuZZFQK0ex75/array/' + index + '/userSelect').set($scope.userKey);
+  
+
+  $scope.setSelected = function (index, card) {
+    if(card.userSelect) return;
+    if(card.isWrong) {
+      wrongDataRef.child(card.id + '/userSelect').set($scope.userKey);
+    }
+    firebase.database().ref().child('/rooms/-L3Hfgf52LU1R4YjcR-p/images/-L3JYIHFEqCfAFb4BC8-/array/' + card.id + '/userSelect').set($scope.userKey);
   }
 
   $("#drop-area").dmUploader({
@@ -97,6 +109,7 @@ function shareController($scope, $window, $firebaseObject, $firebaseArray, $http
         $('.result div').remove();
         for (let i = 0; i < results.length; i++) {
           $('.result').append('<div>' + results[i].name + '</div>')
+          results[i].id = i
         }
 
         $scope.cardArr = results.map(x => x.name)
@@ -106,7 +119,6 @@ function shareController($scope, $window, $firebaseObject, $firebaseArray, $http
             x.userSelect = ''
             delete x.app_id
             delete x.value
-            delete x.id
             return x
           })
         });
@@ -121,6 +133,7 @@ function shareController($scope, $window, $firebaseObject, $firebaseArray, $http
         $('.result div').remove();
         for (let i = 0; i < results.length; i++) {
           $('.result').append('<div>' + results[i].name + '</div>')
+          results[i].id = i
         }
 
         $scope.cardArr = results.map(x => x.name)
@@ -130,7 +143,6 @@ function shareController($scope, $window, $firebaseObject, $firebaseArray, $http
             x.userSelect = ''
             delete x.app_id
             delete x.value
-            delete x.id
             return x
           })
         });
@@ -141,4 +153,17 @@ function shareController($scope, $window, $firebaseObject, $firebaseArray, $http
     );
   }
 
+}
+
+function randomArray(arra1) {
+  var ctr = arra1.length, temp, index;
+
+  while (ctr > 0) {
+    index = Math.floor(Math.random() * ctr);
+    ctr--;
+    temp = arra1[ctr];
+    arra1[ctr] = arra1[index];
+    arra1[index] = temp;
+  }
+  return arra1;
 }
