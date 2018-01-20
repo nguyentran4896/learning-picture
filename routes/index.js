@@ -16,6 +16,10 @@ router.get('/verser', function (req, res, next) {
   res.render('verser', { title: 'Express' });
 });
 
+router.get('/search', function (req, res, next) {
+  res.render('search', { title: 'Express' });
+});
+
 // combine text and translated text in one object
 router.post('/translate-combine', function (req, res, next) {
   let arr = []
