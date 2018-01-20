@@ -1,123 +1,179 @@
 <!DOCTYPE html>
-<html ng-app="LearningEnglish">
+<html lang="en" ng-app="LearningEnglish">
 
 <head>
-  <title>
-    <%= title %>
-  </title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/lib/uploader/uploader.css">
-  <link rel='stylesheet' href='/css/styles.css' />
+	<title>Ambition | <%= title %></title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- FONT CSS-->
+	<link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Pacifico">
+	<link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Cuprum:400,700">
+	<link type="text/css" rel="stylesheet" href="/font/font-icon/font-awesome/css/font-awesome.css">
+	<link type="text/css" rel="stylesheet" href="/font/font-icon/font-oganic/flaticon.css">
+	
+	<!-- LIBRARY CSS-->
+	<link type="text/css" rel="stylesheet" href="/libs/bootstrap/css/bootstrap.min.css">
+	<link type="text/css" rel="stylesheet" href="/libs/animate/animate.css">
+	<link type="text/css" rel="stylesheet" href="/libs/slick-slider/slick.css">
+	<link type="text/css" rel="stylesheet" href="/libs/slick-slider/slick-theme.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+	<!-- STYLE CSS-->
+	<link type="text/css" rel="stylesheet" href="/css/styles.css">
+	<link type="text/css" rel="stylesheet" href="/css/upload.css">
+	
+	<script src="/libs/jquery/jquery-2.2.4.min.js"></script>
+	
+	<script src="/libs/angularjs/angular.min.js"></script>
+	<script src="//www.gstatic.com/firebasejs/4.0.0/firebase.js"></script>
+	<script src="//cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
 
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://sdk.clarifai.com/js/clarifai-latest.js"></script>
+	<script src="/lib/uploader/uploader.js"></script>
 
+	<script src="/js/common.js"></script>
+	<script type="text/javascript" src="/js/verser.js"></script>
+<style>
+	.preview-img {
+		width: 64px;
+		height: 64px;
+	}
 
-  <script src="/libs/angularjs/angular.min.js"></script>
-  <script src="//www.gstatic.com/firebasejs/4.0.0/firebase.js"></script>
-  <script src="//cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+	form {
+		border: solid #f7f7f9 !important;
+		padding: 1.5rem
+	}
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="https://sdk.clarifai.com/js/clarifai-latest.js"></script>
-  <script src="/lib/uploader/uploader.js"></script>
+	form.active {
+		border-color: red !important;
+	}
 
-  <script src="/js/common.js"></script>
-  <script type="text/javascript" src="/js/verser.js"></script>
+	form .progress {
+		height: 38px;
+	}
+
+	.dm-uploader {
+		border: 0.25rem dashed #A5A5C7;
+	}
+
+	.dm-uploader.active {
+		border-color: red;
+
+		border-style: solid;
+	}
+	.card.active {
+		background-color: green;
+	}
+	.card.inactive {
+		background-color: red;
+	}
+	.card.wrong {
+		background-color: #ddd;
+	}
+
+</style>
 </head>
 
-<style>
-  .preview-img {
-    width: 64px;
-    height: 64px;
-  }
-
-  form {
-    border: solid #f7f7f9 !important;
-    padding: 1.5rem
-  }
-
-  form.active {
-    border-color: red !important;
-  }
-
-  form .progress {
-    height: 38px;
-  }
-
-  .dm-uploader {
-    border: 0.25rem dashed #A5A5C7;
-  }
-
-  .dm-uploader.active {
-    border-color: red;
-
-    border-style: solid;
-  }
-</style>
-
 <body ng-controller="shareController">
-  <div class="col-xs-12" ng-show="isChoosingImage">
-    
-    <input type="text" id="input" value="https://firebasestorage.googleapis.com/v0/b/elpicture-86fb4.appspot.com/o/images%2Fmountains.jpg?alt=media&token=e2359c6e-69da-4afd-bc35-4b5ca4e8ca39">
+	<!--BEGIN PAGE LOADER-->
+	<div class="body-wrapper" >
+		<!-- WRAPPER CONTENT-->
+		<div class="wrapper-content">
+			<!-- HEADER-->
+			<header>
+				<div class="bg-transparent">
+					<div class="header-main">
+						<div class="container">
+							<div class="header-main-wrapper">
+								<div class="hamburger-menu-mobile"><i class="icons fa fa-bars"></i></div>
+								<div class="logo-wrapper"><a href="index.html" class="logo">Ambition</a></div>
+								<nav class="navigation">
+									<ul class="nav-links nav navbar-nav">
+										<li><a href="/" class="main-menu"><span class="text">Home</span></a></li>
+										<li class="active"><a href="javascript:void(0)" class="main-menu"><span class="text">Round 1</span></a></li>
+										<li><a href="javascript:void(0)" class="main-menu"><span class="text">Round 2</span></a></li>
+									</ul>
+								</nav>
+							</div>
+						</div>
+					</div>
+				</div>
+			</header>
+			<!-- MAIN CONTENT-->
+			<div class="main-contents">
+				<section class="wrapper-verser padding-top-100 padding-bottom-100">
+					<div class="container">
+					<!--  -->
+					<div class="col-xs-12" ng-show="isChoosingImage">
+						
+						<input type="text" id="input" value="https://firebasestorage.googleapis.com/v0/b/elpicture-86fb4.appspot.com/o/images%2Fmountains.jpg?alt=media&token=e2359c6e-69da-4afd-bc35-4b5ca4e8ca39">
 
-    <button id="button">go go go</button>
+						<button id="button">go go go</button>
 
-    <div id="drop-area" class="dm-uploader text-center" style="height: 300px">
-      <h3>Drag &amp; drop Images here</h3>
-      <div class="btn btn-primary ">
-        <span>Open the file Browser</span>
-        <input type="file" title="Click to add Files" id="file" name='file' onchange="angular.element(this).scope().uploadImage(this)"/>
-      </div>
-    </div>
+						<div id="drop-area" class="dm-uploader text-center" style="height: 300px">
+							<h3>Drag &amp; drop Images here</h3>
+							<div class="btn btn-primary ">
+								<span>Open the file Browser</span>
+								<input type="file" title="Click to add Files" id="file" name='file' onchange="angular.element(this).scope().uploadImage(this)"/>
+							</div>
+						</div>
 
-  </div>
-  <div class="review-image">
-    <img src="https://firebasestorage.googleapis.com/v0/b/elpicture-86fb4.appspot.com/o/images%2Fmountains.jpg?alt=media&token=e2359c6e-69da-4afd-bc35-4b5ca4e8ca39" alt="img" width="200" height="200" style="object-fit:contain">
-  </div>
+					</div>
+					<div class="review-image has-image">
+						<img src="https://firebasestorage.googleapis.com/v0/b/elpicture-86fb4.appspot.com/o/images%2Fmountains.jpg?alt=media&token=e2359c6e-69da-4afd-bc35-4b5ca4e8ca39" alt="img" width="200" height="200" style="object-fit:contain">
+					</div>
 
-  <style>
-    .card.active {
-      background-color: green;
-    }
-    .card.inactive {
-      background-color: red;
-    }
-    .card.wrong {
-      background-color: #ddd;
-    }
-  </style>
+					<div class="container-fluid" style="font-size:20px; font-weight:bold" ng-show="!isChoosingImage">
+						<div ng-repeat="card in array"
+						ng-click="setSelected($index, card)"
+						class="col-xs-3 card" ng-class="{'active' : card.userSelect == userKey,
+																				'': !card.userSelect,
+																				'inactive': card.userSelect && card.userSelect != userKey,
+																				'wrong': card.isWrong && card.userSelect
+																			}"
+						style="height:100px;border:1px solid #000;">
+							{{ card.name }}
+						</div>
+					</div>
+					<br>
+					<div class="container-fluid">
+						<div class="pull-left">
+							<div class="user-name">
+								<img class="user-avatar" width="30px" style="border-radius:50%"
+								src="https://scontent-hkg3-1.xx.fbcdn.net/v/t1.0-9/18740419_1398808056874032_6423833359628514647_n.jpg?oh=89d30eede3cc2c6756a72ffe42d14f16&oe=5AE1ACB2" alt="">
+								Nguyen 
+							</div>
+							<div class="user-point">Point: {{ 13 + (array | filter:{'userSelect': userKey}).length }}</div>
+						</div>
 
-  <div class="container-fluid" style="font-size:20px; font-weight:bold" ng-show="!isChoosingImage">
-    <div ng-repeat="card in array"
-    ng-click="setSelected($index, card)"
-    class="col-xs-3 card" ng-class="{'active' : card.userSelect == userKey,
-                                '': !card.userSelect,
-                                'inactive': card.userSelect && card.userSelect != userKey,
-                                'wrong': card.isWrong && card.userSelect
-                              }"
-    style="height:100px;border:1px solid #000;">
-      {{ card.name }}
-    </div>
-  </div>
-<br>
-  <div class="container-fluid">
-    <div class="pull-left">
-      <div class="user-name">
-        <img class="user-avatar" width="30px" style="border-radius:50%"
-        src="https://scontent-hkg3-1.xx.fbcdn.net/v/t1.0-9/18740419_1398808056874032_6423833359628514647_n.jpg?oh=89d30eede3cc2c6756a72ffe42d14f16&oe=5AE1ACB2" alt="">
-        Nguyen 
-      </div>
-      <div class="user-point">Point: {{ 13 + (array | filter:{'userSelect': userKey}).length }}</div>
-    </div>
+						<div class="pull-right">
+							<div class="user-name">Nhan
+									<img class="user-avatar" width="30px" style="border-radius:50%"
+									src="https://scontent-hkg3-1.xx.fbcdn.net/v/t31.0-1/c282.0.960.960/p960x960/10506738_10150004552801856_220367501106153455_o.jpg?oh=089d9dc6f4956b95e8d8e73fac1c7ea5&oe=5ADA1212" alt="">
+								</div>
+							<div class="user-point">Point: {{ 18 + (array | filter:{'-userSelect': userKey}).length }}</div>
+						</div>
+					</div>
+					<!--  -->
+					</div>
+				</section>
+			</div>
+			<!-- BUTTON BACK TO TOP-->
+			<div id="back-top"><a href="#top" class="link"><i class="fa fa-angle-double-up"></i></a></div>
+		</div>
+	</div>
+	<!-- LIBRARY JS-->
+	
+	<script src="/libs/smooth-scroll/jquery-smoothscroll.min.js"></script>
+	<script src="/libs/wow-js/wow.min.js"></script>
+	<script src="/libs/slick-slider/slick.min.js"></script>
+	<!-- MAIN JS-->
+	<script src="/js/main.js"></script>
+	
+	<!-- LOADING SCRIPTS FOR PAGE-->
+	<script src="/libs/parallax/jquery.parallax-scroll.min.js"></script>
 
-    <div class="pull-right">
-      <div class="user-name">Nhan
-          <img class="user-avatar" width="30px" style="border-radius:50%"
-          src="https://scontent-hkg3-1.xx.fbcdn.net/v/t31.0-1/c282.0.960.960/p960x960/10506738_10150004552801856_220367501106153455_o.jpg?oh=089d9dc6f4956b95e8d8e73fac1c7ea5&oe=5ADA1212" alt="">
-        </div>
-      <div class="user-point">Point: {{ 18 + (array | filter:{'-userSelect': userKey}).length }}</div>
-    </div>
-  </div>
-
+	
 </body>
 
 </html>
