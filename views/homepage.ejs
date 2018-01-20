@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html ng-app="LearningEnglish">
 
 <head>
     <title>Ambition | <%= title %></title>
@@ -17,9 +17,18 @@
     <link type="text/css" rel="stylesheet" href="/libs/slick-slider/slick-theme.css">
     <!-- STYLE CSS-->
     <link type="text/css" rel="stylesheet" href="/css/styles.css">
+
+    <script src="/libs/jquery/jquery-2.2.4.min.js"></script>
+    <script type="text/javascript" src="https://sdk.clarifai.com/js/clarifai-latest.js"></script>
+    <script src="/lib/uploader/uploader.js"></script>
+    <script src="/libs/angularjs/angular.min.js"></script>
+    <script src="//www.gstatic.com/firebasejs/4.0.0/firebase.js"></script>
+    <script src="//cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+    <script type="text/javascript" src="/js/user.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
 </head>
 
-<body>
+<body ng-controller='userController'>
     <!--BEGIN PAGE LOADER-->
     <div class="body-wrapper">
         <!-- WRAPPER CONTENT-->
@@ -255,19 +264,19 @@
                 <div class="wrapper-model-content">
                     <div class="main-titles-2 text-center">
                         <div class="title">Login</div>
-                        <form id="contactForm" novalidate="novalidate" class="contact-form">
+                        <form id="contactForm" class="contact-form" ng-submit='checkLogin()'>
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="form-group">
                                         <label class="form-label">EMAIL <span class="highlight">*</span></label>
-                                        <input id="l-email" type="email" required="required" data-validation-required-message="Please enter your email address." class="form-control" />
+                                        <input id="l-email" type="email" required="true" data-validation-required-message="Please enter your email address." class="form-control" ng-model='email'/>
                                         <p class="help-block text-danger"></p>
                                     </div>
                                 </div>
                                 <div class="col-sm-12">
                                     <div class="form-group">
                                         <label class="form-label">PASSWORD <span class="highlight">*</span></label>
-                                        <input id="l-password" type="password" required="required" data-validation-required-message="Please enter your password." class="form-control" />
+                                        <input id="l-password" type="password" required="true" data-validation-required-message="Please enter your password." class="form-control" ng-model='password'/>
                                         <p class="help-block text-danger"></p>
                                     </div>
                                 </div>
