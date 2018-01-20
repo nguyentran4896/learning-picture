@@ -10,11 +10,13 @@
  		min-height: 100vh;
  		background-image: url("../images/background-full/bg-01.jpg");
  		background-repeat: no-repeat;
- 		background-size: cover;
+ 		background-size: 100% auto;
+    	background-attachment: fixed;
  	}
 
 	.url-area {
 		.main-form {
+			margin-top: 100px;
 			.circle(30px);
 			padding: 30px 50px;
 			background-color: #fff;
@@ -32,8 +34,6 @@
 			font-size: 40px;
 		}
 	}
-
-
 
 	.dm-uploader {
 		.circle(30px);
@@ -77,6 +77,88 @@
 		}
 	}
 
-		
+	.review-image {
+		margin: 0 auto;
+		display: block;
+		max-width: 720px;
+		background-color: #fff;
+		.circle(10px);
+		box-shadow: 0 0 7px 3px rgba(0,0,0,0.2);
+		&:not(.has-image) {
+			display: none;
+		}
+		img {
+			width: -moz-calc(~"100% - 30px");
+			width: -webkit-calc(~"100% - 30px");
+			width: calc(~"100% - 30px");
+			height: auto;
+			margin: 15px;
+			.circle(10px);
+		}
+	}
 
-			
+	.list-keywords {
+		font-size: 0;
+		text-align: center;
+		position: relative;
+		margin: 60px -40px 0 -40px;
+		.item {
+			padding: 0px 40px;
+			width: auto;
+			display: inline-block;
+			vertical-align: middle;
+			margin-top: 50px;
+			&:nth-child(5n + 1) .keyword {
+				background-image: url("../images/more-image/cloud-01.png");
+			}
+			&:nth-child(5n + 2) .keyword {
+				background-image: url("../images/more-image/cloud-02.png");
+			}
+			&:nth-child(5n + 3) .keyword {
+				background-image: url("../images/more-image/cloud-03.png");
+			}
+			&:nth-child(5n + 4) .keyword {
+				background-image: url("../images/more-image/cloud-04.png");
+			}
+			&:nth-child(5n) .keyword {
+				background-image: url("../images/more-image/cloud-05.png");
+			}
+		}
+		.keyword {
+			font-weight: 700;
+			text-transform: capitalize;
+			font-size: 20px;
+			padding: 50px 70px;
+			min-width: 200px;
+			background-repeat: no-repeat;
+			background-size: contain;
+			background-position: center;
+			letter-spacing: 0.4px;
+			cursor: pointer;
+			&:before {
+				content: 'correct';
+				font-size: 0;
+				background-image: url("../images/more-image/correct.png");
+			}
+			&:after {
+				content: 'wrong';
+				font-size: 0;
+				background-image: url("../images/more-image/wrong.png");
+			}
+			&:after,
+			&:before {
+				background-repeat: no-repeat;
+				background-size: 35px;
+				display: block;
+				position: absolute;
+				top: 50%;
+				right: 20px;
+				z-index: 3;
+				width: 35px;
+				height: 35px;
+				.transform(translateY(-50%));
+				opacity: 0;
+				.transition(all 0.3s ease)
+			}
+		}
+	}
