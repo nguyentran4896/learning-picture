@@ -42,12 +42,12 @@ router.post('/translate-arr', function (req, res, next) {
       arr.push({
         text: text,
         id: count,
-        userSelect: ''
+        userSelect: false
       })
       arr.push({
         text: str,
         id: count,
-        userSelect: ''
+        userSelect: false
       })
 
       count++

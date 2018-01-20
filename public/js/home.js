@@ -9,13 +9,13 @@ firebaseConfig = {
 
 angular
   .module('LearningEnglish', ['firebase'])
-  .controller('shareController', ['$scope', '$window', '$firebaseObject', '$firebaseArray', '$http', shareController]);
+  .controller('homeController', ['$scope', '$window', '$firebaseObject', '$firebaseArray', '$http', homeController]);
 
 const app = new Clarifai.App({
   apiKey: 'e59b033ef81c47de963a93e9cb7e101a'
 });
 
-function shareController($scope, $window, $firebaseObject, $firebaseArray, $http) {
+function homeController($scope, $window, $firebaseObject, $firebaseArray, $http) {
   firebase.initializeApp(firebaseConfig);
   var storageRef = firebase.storage().ref();
   var databaseRef = firebase.database().ref();
@@ -25,28 +25,16 @@ function shareController($scope, $window, $firebaseObject, $firebaseArray, $http
 
   $scope.array = $firebaseArray(firebase.database().ref());
 
-  // $scope.array.$loaded().then(function () {
-  //   for (let i = 0; i < $scope.array.length; i++) {
-  //     $scope.series.push($scope.array[i]);
-  //   }
-  // })
-
-  // $scope.array.$watch(function (event) {
-  //   $scope.series.push($scope.array[$scope.array.length - 1]);
-  // });
-
   $("#drop-area").dmUploader({
     onNewFile: function(id, file){
-      console.log('Callback: Plugin initialized');
       uploadFileToFirebase(file)
     }
   });
 
+
   $scope.uploadImage = function (fileInput) {
     let file = $(fileInput)[0].files[0]
-
     uploadFileToFirebase(file)
-    
   }
 
   function uploadFileToFirebase (file) {
@@ -70,19 +58,24 @@ function shareController($scope, $window, $firebaseObject, $firebaseArray, $http
       }
     }, function(error) { console.log(error) }, function() {
       var downloadURL = uploadTask.snapshot.downloadURL;
+      $scope.isChoosingImage = false
+      $scope.$apply()
       predict(downloadURL)
       $('.review-image img').removeClass('hide');
+      $('.review-image').addClass('has-image');
       $('.review-image img').attr('src', downloadURL);
     });
   }
 
-  $('button').on('click', function () {
-    let url = $('#input').val()
-    console.log(url)
-    if(url){
-      predict($('#input').val())
-      $('img').removeClass('hide');
-      $('img').attr('src', url);
+  $('#url-input').keypress(function(event) {
+    let url = $(this).val()
+    if(url && event.keyCode == 13){
+      $scope.isChoosingImage = false
+      $scope.$apply()
+      predict(url)
+      $('.review-image img').removeClass('hide');
+      $('.review-image').addClass('has-image');
+      $('.review-image img').attr('src', url);
     }
   })
 
@@ -90,6 +83,7 @@ function shareController($scope, $window, $firebaseObject, $firebaseArray, $http
 
   function predict (imageURL) {
     if(!imageURL) return;
+    $('body').addClass('loader');
     app.models.predict(Clarifai.GENERAL_MODEL, imageURL).then(
       function (response) {
         let results = response.outputs[0].data.concepts;
@@ -98,12 +92,10 @@ function shareController($scope, $window, $firebaseObject, $firebaseArray, $http
           $('.result').append('<div>' + results[i].name + '</div>')
         }
 
-        $.post('/translate-arr', {strArr: JSON.stringify(results.map(x=>x.name).splice(0,10))}, function(res){
+        $.post('/translate-arr', {strArr: JSON.stringify(results.map(x=>x.name).splice(0,5))}, function(res){
           $scope.cardArr = res.arr
-          console.log($scope.cardArr)
-
-          $scope.isChoosingImage = false
           $scope.$apply()
+          $('body').removeClass('loader');
         })
       },
       function (err) { 
@@ -114,16 +106,25 @@ function shareController($scope, $window, $firebaseObject, $firebaseArray, $http
         for (let i = 0; i < results.length; i++) {
           $('.result').append('<div>' + results[i].name + '</div>')
         }
-        $.post('/translate-arr', {strArr: JSON.stringify(results.map(x=>x.name).splice(0,10))}, function(res){
+        $.post('/translate-arr', {strArr: JSON.stringify(results.map(x=>x.name).splice(0,5))}, function(res){
           $scope.cardArr = res.arr
-          console.log($scope.cardArr)
-
-          $scope.isChoosingImage = false
           $scope.$apply()
+          $('body').addClass('loader');
         })
-      
       }
     );
+  }
+
+  $scope.indexCardChoosing = -1
+
+  $scope.chooseCard = function (index) {
+    if ($scope.indexCardChoosing != -1) {
+      $scope.cardArr[$scope.indexCardChoosing].userSelect = false
+      $scope.indexCardChoosing = -1
+    } else {
+      $scope.indexCardChoosing = index
+      $scope.cardArr[$scope.indexCardChoosing].userSelect = true
+    }
   }
   
 }
