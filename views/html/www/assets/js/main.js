@@ -272,9 +272,41 @@ jQuery(function($) {
     };
 
     learnEnglish.uploader = function() {
+        var fc = null, sc = null, flat = false;
 
         $(".list-keywords .keyword").click( function(){
-            console.log($(this));
+            if( $(this).hasClass("correct") || $(this).hasClass("correct") || $(this).hasClass("is-selected") ) return;
+            if( flat == true) return;
+
+            if( fc == null ) {
+                fc = $(this);
+                fc.addClass("correct");
+            } else {
+                sc = $(this);
+                //console.log( fc.attr("idKey") + "   " +  sc.attr("idKey") );
+                if( fc.attr("idKey") == sc.attr("idKey") ) {
+                    sc.addClass("correct");
+
+                    flat = true;
+                    setTimeout(function(){ 
+                        flat = false;
+                        fc.addClass("is-selected fadeOut").removeClass("correct").removeClass("wrong");
+                        sc.addClass("is-selected fadeOut").removeClass("correct").removeClass("wrong");
+                        fc = sc = null;
+                    }, 500);
+                } else {
+                    sc.addClass("wrong");
+
+                    flat = true;
+                    setTimeout(function(){ 
+                        flat = false;
+                        fc.removeClass("correct").removeClass("wrong");
+                        sc.removeClass("correct").removeClass("wrong");
+                        fc = sc = null;
+                    }, 500);
+                }
+            }
+
         });
     };
 
