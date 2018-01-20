@@ -1,0 +1,1451 @@
+
+/**
+ * [Table of contents]
+ *
+ * [&. Content / #key]
+ * [Let press Ctrl + f and type of paste the key, then press Enter to search the content ]
+ *
+ * Summary:
+ *
+ *  0. VARIABLE LESS
+ *    - 0.1. Color
+ *  1. RESPONSIVE SCREEN
+ *    - 1.0. Media screen min width 1600px
+ *    - 1.1. Media screen max width 1024px
+ *    - 1.2. Media screen max width 768px
+ *    - 1.3. Media screen max width 767px
+ *    - 1.4. Media screen max width 600px
+ *    - 1.5. Media screen max width 480px
+ *    - 1.6. Media screen max width 414px
+ *    - 1.7. Media screen max width 380px
+ *    - 1.8. Media screen max width 320px
+ */
+
+
+/*=====================================
+=            VARIABLE LESS            =
+=====================================*/
+
+    @import "../less/library.less";
+
+
+/*=====  End of VARIABLE LESS  ======*/
+
+
+
+/*=========================================
+=            RESPONSIVE SCREEN            =
+=========================================*/
+
+/*----------  1.0. Media screen min width 1600px  ----------*/
+@media screen and (min-width: 1600px) {
+
+    /********************* HOME PAGE ***********************/
+        .background-slide {
+            .slide-item {
+                &:after {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    right: 0;
+                    left: 0;
+                    background-color: rgba(0,0,0,0.4);
+                    pointer-events: none;
+                    z-index: 1;
+                }
+                .img-background {
+                    top: auto;
+                    bottom: auto;
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
+                }
+            }
+            .title {
+                font-size: 6rem;
+            }
+            .subtitle {
+                font-size: 2rem;
+            }
+        }
+        .navigation .nav-links .main-menu {
+            font-size: 20px;
+        }
+
+        .homepage-parallax {
+            .title {
+                font-size: 6rem;
+            }
+            .subtitle {
+                font-size: 2rem;
+            }
+        }
+
+
+    /********************* PAGE 404 ***********************/
+        .page-404 {
+            .title {
+                margin-top: 8%;
+                font-size: 6rem;
+            }
+        }
+
+}
+
+@media screen and (max-width: 1280px) {
+    /********************* SHOPPING CART *********************/
+        .discount-shipping-payment {
+            .payment-code {
+                .shipping-handling {
+                    .shipping-methods {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+}
+
+/*----------  1.1. Media screen max width 1024px  ----------*/
+@media screen and (max-width: 1024px) {
+
+    /********************* HOME PAGE ***********************/
+        .about-us-wrapper {
+            .about-left, .about-right {
+                width: 30%;
+            }
+            .about-center {
+                width: 40%;
+            }
+        }
+
+        .banner-1-wrapper {
+            .subtitle {
+                font-size: 2rem;
+            }
+            .title {
+                font-size: 4rem;
+            }
+        }
+
+        .slick-dots {
+            bottom: -40px;
+            li {
+                margin: 0;
+                button {
+                    &:before {
+                        font-size: 12px;
+                        opacity: 0.7;
+                        color: #fafafa;
+                        .transition(all 0.3s ease);
+                    }
+                }
+                &.slick-active {
+                    button:before {
+                        font-size: 14px;
+                        opacity: 1;
+                        color: @main-color;
+                    }
+                }
+            }
+        }
+
+        .list-customer-review {
+            margin: 0 -40px;
+            .item {
+                padding: 0 40px;
+            }
+        }
+
+        .subscribe-email {
+            .subscribe-email-wrapper {
+                .subscribe-email-right {
+                    float: left;
+                    margin-top: 10px;
+                }
+            }
+        }
+    
+    /********************* HOME PAGE 2 ***********************/
+        .block-icon-2 {
+            padding: 20px 10px;
+        }
+
+    /********************* SHOP *********************/
+        .topbar-control {
+            .right-bar {
+                float: left;
+                margin-top: 10px;
+                width: 100%;
+            }
+            .result-filter-wrapper + .btn-list-grid {
+                float: right;
+            }
+        }
+
+    /********************* ABOUT US *********************/
+        .tab-vertical {
+            .tab-list-wrapper {
+                display: inline-block;
+                width: 100%;
+                vertical-align: top;
+                margin-bottom: 40px;
+            }
+            .tab-content {
+                padding: 0;
+                display: inline-block;
+                width: 100%;
+                vertical-align: top;
+            }
+            .tab-list {
+                display: inline-block;
+                width: 100%;
+                vertical-align: top;
+                &:before {
+                    content: none;
+                }
+                li {
+                    display: table-cell;
+                    width: 1%;
+                    text-align: center;
+                    &:first-child {
+                        text-align: left;
+                    }
+                    &:last-child {
+                        text-align: right;
+                    }
+                    &:before, &:after {
+                        content: none;
+                    }
+                    .link {
+                        padding-right: 0;
+                        padding-left: 40px;
+                        width: auto;
+                        &:before {
+                            position: absolute;
+                            content: "";
+                            width: 10px;
+                            height: 10px;
+                            background-color: #d9d9d9;
+                            left: 0;
+                            top: 50%;
+                            z-index: 5;
+                            .transform(translateY(-50%));
+                            .circle(50%);
+                            .transition(all 0.3s ease);
+                        }
+                        &:after {
+                            position: absolute;
+                            content: "";
+                            width: 22px;
+                            height: 22px;
+                            background-color: #f3f3f3;
+                            left: -6px;
+                            top: 50%;
+                            z-index: 4;
+                            .transform(translateY(-50%));
+                            .circle(50%);
+                            .transition(all 0.3s ease);
+                        }
+                    }
+                    &.active {
+                        .link {
+                             &:before {
+                                background-color: @main-color;
+                            }
+                            &:after {
+                                background-color: #fff;
+                                box-shadow: 0 0 20px 10px rgba(0,0,0,0.02);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    /********************* SHOPPING CART *********************/
+        .wrapper-discount-code {
+            width: 50%;
+        }
+        .wrapper-shipping-tax {
+            width: 50%;
+        }
+        .wrapper-payment-code {
+            max-width: 420px;
+            margin: 30px 0 0 50%;
+            .transform(translateX(-50%));
+        }
+        .discount-shipping-payment {
+            .payment-code {
+                .shipping-handling {
+                    .shipping-methods {
+                        width: initial;
+                    }
+                }
+            }
+        }
+        .shopping-cart {
+            tbody {
+                .product-quantity {
+                    width: 80px;
+                }
+                .product-price {
+                    width: 150px;
+                }
+                .product-subtotal {
+                    width: 140px;
+                }
+            }
+        }
+}
+
+/*----------  1.2. Media screen max width 768px  ----------*/
+@media screen and (max-width: 768px) {
+        .header-main {
+            .logo-wrapper {
+                .logo {
+                    img {
+                        max-width: 110px;
+                    }
+                }
+            }
+        }
+
+        .navigation {
+            .nav-links {
+                .main-menu {
+                    margin: 0 18px;
+                }
+            }
+        }
+
+        .button-search .main-menu {
+            margin-right: 0;
+            margin-left: 18px;
+        }
+
+        .sidebar {
+            margin-top: 100px;
+            .col-1 {
+                width: 100%;
+            }
+            .col-2 {
+                float: left;
+                width: 50%;
+                .widget:last-child {
+                    margin-bottom: 0;
+                }
+                &:nth-child(even) {
+                    padding-right: 15px;
+                }
+                &:nth-child(odd) {
+                    padding-left: 15px;
+                }
+            }
+        }
+
+        .main-right {
+            float: left;
+        }
+
+        .padding-top-100 {
+            padding-top: 80px;
+        }
+
+        .padding-bottom-100 {
+            padding-bottom: 80px;
+        }
+
+        .margin-top-70 {
+            margin-top: 60px;
+        }
+
+        .margin-top-50 {
+            margin-top: 40px;
+        }
+
+        .sidebar {
+            margin-top: 80px;
+            .widget {
+                margin-bottom: 40px;
+            }
+        }
+
+
+    /********************* HOME PAGE ***********************/
+        .main-titles {
+            .title {
+                font-size: 3rem;
+                margin-bottom: 60px;
+            }
+        }
+
+        .background-slide {
+            .title {
+                font-size: 3.75rem;
+            }
+        }
+
+        .about-us-wrapper {
+            .about-left {
+                width: auto;
+                padding-right: 0;
+                margin: 0 -15px;
+            }
+            .about-center {
+                width: 60%;
+                display: block;
+                float: none;
+                text-align: center;
+                margin: 0 auto;
+                img {
+                }
+
+            }
+            .about-right {
+                padding-left: 0;
+                width: auto; 
+                margin: 0 -15px;
+            }
+            .block-icon-1 {
+                width: 50%;
+                padding: 0 15px;
+                float: left;
+                margin-bottom: 0;
+            }
+        }
+
+        .grid-block-3 {
+            .grid-left {
+                display: block;
+                padding-right: 0;
+                width: auto;
+            }
+            .grid-right {
+                display: block;
+                width: 100%;
+                margin-top: 30px;
+            }
+        }
+
+        .grid-block-2 {
+            .grid-1, .grid-2 {
+                width: 50%;
+            }
+        }
+
+        .grid-block-1 {
+            .block-left, .block-right {
+                width: 100%;
+            }
+            .block-right  .grid-item:first-child {
+                margin-top: 30px;
+            }
+        }
+
+        .gallery-grid {
+            .grid-item {
+                width: 50%;
+            }
+        }
+
+        .block-2 .block-image {
+            width: 200px;
+            &:before {
+                padding-top: 80px;
+            }
+        }
+
+        .block-3 {
+            &.style-2 {
+                .block-content, .block-image {
+                    display: block;
+                    width: 100%;
+                }
+                .block-content {
+                    padding: 30px;
+                }
+            }
+            .block-content {
+                padding: 30px;
+            }
+        }
+
+        .footer-wrapper {
+            .col-2 {
+                display: inline-block;
+                width: 100%;
+                margin-bottom: 30px;
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        .blog-detail-content .content .tags {
+            margin-top: 30px;
+        }
+
+    /******************** HOME PAGE 2 **********************/
+        .block-icon-2 {
+            padding: 20px;
+        }
+
+        .about-us {
+            .col-md-3.col-xs-6 {
+                margin-top: 30px;
+                &:nth-child(-n + 2) {
+                    margin-top: 0;
+                }
+            }
+        }
+
+        .gallery-grid-2 {
+            .grid-item {
+                width: 50%;
+                &:before {
+                    padding-top: 80%;
+                }
+                &.grid-item-width-2 {
+                    width: 100%;
+                    &:before {
+                        padding-top: 40%;
+                    }
+                }
+                &.grid-item-height-2 {
+                    &:before {
+                        padding-top: 160%;
+                    }
+                }
+                &.grid-item-width-2.grid-item-height-2 {
+                    width: 50%;
+                    &:before {
+                        padding-top: 80%;
+                    }
+                }
+            }
+        }
+
+        .banner-3 {
+            position: relative;
+            padding: 80px 50px;
+            display: block;
+            .left-image {
+                width: 100%;
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+            }
+            .right-infomation {
+                width: 100%;
+                position: relative;
+                z-index: 2;
+                display: block;
+            }
+            .content-wrapper {
+                .title {
+                    font-size: 2rem;
+                }
+            }
+        }
+
+
+    /********************* ABOUT US *********************/
+        .tab-vertical {
+            .text-content, .text-image {
+                padding-left: 0;
+                width: 100%;
+            }
+
+            .text-content {
+                padding-bottom: 30px;
+            }
+        }
+
+    
+    /********************* CHECK OUT *********************/
+        .shippingForm {
+            padding-top: 80px;
+        }
+
+    /********************* SHOPPING CART *********************/
+        .shopping-cart {
+            tbody {
+                .product-thumbnail {
+                    width: 80px;
+                    .wrapper-thumbnail {
+                        width: 80px;
+                        height: 80px;
+                    }
+                }
+                .product-name {
+                    padding-left: 10px;
+                }
+                .product-categories {
+                    width: 100px;
+                }
+                .product-remove {
+                    width: 30px;
+                }
+                .product-price {
+                    width: 120px;
+                }
+                .product-quantity {
+                    width: 50px;
+                    .quantity {
+                        width: 50px;
+                    }
+                }
+                .product-subtotal {
+                    width: 120px;
+                }
+            }
+            .cart-totals {
+                .subtotal {
+                    padding-top: 10px;
+                }
+                .col-md-7 {
+                    width: 430px;
+                }
+                .col-md-5 {
+                    width: calc(~"100% - 430px");
+                }
+                .woocommerce-Price {
+                    margin-left: 20px;
+                }
+            }
+        }
+
+    /********************* SHOP DETAIL *********************/
+        .info-detail {
+            .title {
+                h1 {
+                    margin-top: 30px;
+                }
+            }
+        }
+}
+
+/*----------  1.3. Media screen max width 767px  ----------*/
+@media screen and (max-width: 767px) {
+    
+    html {
+        font-size: 14px;
+    }
+
+    .padding-top-100 {
+        padding-top: 60px;
+    }
+
+    .padding-bottom-100 {
+        padding-bottom: 60px;
+    }
+
+    .margin-top-70 {
+        margin-top: 50px;
+    }
+
+    .margin-bottom-70 {
+        margin-bottom: 50px;
+    }
+
+    .margin-top-50 {
+        margin-top: 30px;
+    }
+
+    .sidebar {
+        margin-top: 60px;
+        .widget {
+            margin-bottom: 30px;
+        }
+    }
+
+    /********************* MENU ***********************/
+        .header-main {
+            .navigation {
+                display: none;
+            }
+            &.header-fixed {
+                .hamburger-menu-mobile, .button-search-mobile {
+                    .icons {
+                        line-height: 50px;
+                    }
+                }
+            }
+        }
+
+        .hamburger-menu-mobile, .button-search-mobile {
+            display: block;
+        }
+
+        .header-main-wrapper {
+            position: relative;
+        }
+
+        .logo-wrapper {
+            left: 50%;
+            margin-left: -55px;
+            position: absolute;
+        }
+
+        .homepage-banner, .background-slide .slide-item {
+            min-height: 667px;
+        }
+
+
+    /********************* HOME PAGE ***********************/
+
+        .banner {
+            background-attachment: scroll;
+        }
+
+        .homepage-banner-content {
+            padding-top: 100px;
+        }
+
+        .about-us-wrapper {
+            .about-left {
+                margin-bottom: 30px;
+            }
+            .about-center {
+                display: none;
+            }
+        }
+
+        .main-titles {
+            .title {
+                margin-bottom: 50px;
+            }
+        }
+
+        .banner-1 {
+            height: 400px;
+            .img-bg-2 {
+                display: none;
+            }
+        }
+
+        .banner-1-wrapper {
+            padding: 30px;
+            .subtitle {
+                font-size: 1.8rem;
+            }
+            .title {
+                font-size: 3rem;
+            }
+        } 
+
+        .banner-2 {
+            height: 400px;
+        }
+
+        .banner-texxt-wrapper {
+            .title {
+                line-height: 1.4;
+                font-size: 2.8rem;
+            }
+            .subtitle {
+                font-size: 2rem;
+            }
+            .prices {
+                .text-1 {
+                    font-size: 4rem;
+                }
+                .text-2 {
+                    font-size: 2rem;
+                }
+            }
+        }
+
+        .footer {
+            display: block;
+            width: auto;
+            height: auto;
+            .footer-wrapper {
+                padding: 150px 0 100px 0;
+            }
+        }
+
+    
+    /********************* HOME PAGE 2 ***********************/
+        .banner-3 {
+            padding: 60px 50px;
+        }
+
+
+    /********************* HOME PAGE 3 ***********************/
+        .position-center {
+            float: none;
+            margin: 30px auto 0 auto;
+            display: inline-block;
+        }
+
+        .banner-5 {
+            height: auto;
+            padding: 60px 0;
+            &:before {
+                content: none;
+            }
+            .wrapper-banner {
+                .transform(translate(0)) !important;
+            }
+        }
+
+
+    /********************* HOME PAGE 3 ***********************/
+        .contact-method {
+            .col-xs-12 {
+                margin-top: 30px;
+                &:first-child {
+                    margin-top: 0;
+                }
+            }
+        }
+
+    /********************* CHECK OUT *********************/
+        .shippingForm {
+            padding-top: 60px;
+        }
+        .shop-table {
+            .cart-item {
+                .product-thumbnail {
+                    width: 80px;
+                    .wrapper-thumbnail {
+                        width: 80px;
+                        height: 80px;
+                    }
+                }
+                .product-name {
+                    padding-left: 10px;
+                }
+            }
+        }
+ 
+        .woocommerce-checkout-payment {
+            li {
+                label {
+                    padding-left: 30px;
+                    &:before {
+                        width: 20px;
+                        height: 20px;
+                    }
+                    &:after {
+                        left: 5px;
+                    }
+                }
+            }
+            .payment_method_paypal {
+                img {
+                    height: 30px;
+                    vertical-align: middle;
+                }
+                label {
+                    &:before {
+                        top: 14px;
+                        transform: none;
+                        -webkit-transform: none;
+                    }
+                    &:after {
+                        top: 25px;
+                        transform: none;
+                        -webkit-transform: none;
+                    }
+                }
+            }
+            .payment_method_cheque {
+                .form-control {
+                    margin-left: 0;
+                }
+            }
+        }
+
+    /********************* SHOPPING CART *********************/
+        .wrapper-discount-code,
+        .wrapper-shipping-tax {
+            width: 100%;
+            max-width: 420px;
+            margin: 0px 0 0 50%;
+            .transform(translateX(-50%));
+        }
+        .wrapper-shipping-tax {
+            margin: 30px 0 0 50%;
+        }
+    
+    /********************* MY ACCOUNT *********************/
+        .my-account-tab {
+            .nav-tabs > li > a {
+                padding: 5px;
+            }
+
+            .tab-content {
+                .title {
+                    margin-top: 30px;
+                    font-size: 24px;
+                    & + form {
+                        margin-top: 15px;
+                    }
+                }
+            }
+        }
+
+        .my-account-detail {
+            .nav-tabs {
+                border-bottom: 0;
+                margin-left: -8px;
+                margin-right: -8px;
+                margin-bottom: 30px;
+                >li {
+                    margin-bottom: 0;
+                    width: calc(~"50% - 16px");
+                    margin-left: 8px;
+                    margin-right: 8px;
+                    &:nth-child(2) {
+                        margin-top: 0;
+                    }
+                    > a {
+                        font-size: 1.375rem;
+                    }
+                }
+            }
+
+            .account-form fieldset {
+                padding: 15px;
+                legend {
+                    margin-bottom: 5px;
+                }
+            }
+        }
+}
+
+/*----------  1.4. Media screen max width 600px  ----------*/
+@media screen and (max-width: 600px) {
+
+    .header-topbar .topbar-right {
+        display: none;
+    }
+
+    .header-topbar .topbar-left > li {
+        padding: 0 10px;
+    }
+
+    .sidebar {
+        .col-1 {
+            width: 100%;
+        }
+        .col-2 {
+            width: 100%;
+            margin-bottom: 30px;
+            &:last-child {
+                margin-bottom: 0;
+            }
+            &:nth-child(even) {
+                padding-right: 0;
+            }
+            &:nth-child(odd) {
+                padding-left: 0;
+            }
+        }
+    }
+
+    /********************* HOME PAGE ***********************/
+        .list-customer-review {
+            margin: 0 -30px;
+            .item {
+                padding: 0 30px;
+            }
+        }
+
+        .grid-block-2 {
+            .grid-1, .grid-2 {
+                width: 100%;
+            }
+        }
+
+
+    /********************* HOME PAGE 2 ***********************/
+        .gallery-grid-3 {
+            .grid-item {
+                width: 100%;
+            }
+        }
+        
+        .banner-3 {
+            .content-wrapper {
+                padding: 0 15px;
+                .title {
+                    font-size: 1.6rem;
+                    .special {
+                        font-size: 2rem;
+                    }
+                }                  
+            }
+        }
+
+
+    /********************* HOME PAGE 3 ***********************/
+        .about-us {
+            .block-video:before {
+                display: block;
+                content: "";
+                padding-top: 60%;
+            }
+        }
+}
+
+/*----------  1.5. Media screen max width 480px  ----------*/
+@media screen and (max-width: 480px) {
+
+
+    /********************* HOME PAGE ***********************/
+        .group-btn {
+            .btn-left {
+                margin: 0 auto;
+                margin-bottom: 15px;
+                display: block;
+            }
+            .btn-right {
+                margin: 0 auto !important;
+                display: block;
+            }
+        }
+
+        .group-btn {
+            .btn {
+                margin: 0 auto;
+                margin-bottom: 15px;
+                display: block;
+                + .btn {
+                    margin: 0 auto !important;
+                }
+            }
+        }
+
+
+        .background-slide {
+            .title {
+                font-size: 3rem;
+            }
+        }
+
+        .about-us-wrapper {
+            .block-icon-1 {
+                width: 100%;
+                margin-bottom: 30px;
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        .list-customer-review {
+            .item {
+                padding: 0 70px;
+            }
+        }
+
+        .banner-2 {
+            height: 500px;
+        }
+
+        .block-2 {
+            .block-image {
+                display: block;
+                width: 100%;
+                &:before {
+                    padding-top: 58%;
+                }
+            }
+            .block-content {
+                display: block;
+            }
+        }
+
+        .subscribe-email .subscribe-email-wrapper {
+            padding: 30px 15px;
+        }
+
+        .gallery-grid {
+            .grid-item {
+                width: 100%;
+            }
+        }
+
+        .footer-wrapper {
+            .col-2 .col-md-3 {
+                width: 100%;
+                margin-bottom: 30px;
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+            .widget .content-widget {
+                margin-top: 20px;
+            }
+        }
+
+        .hyperlink {
+            text-align: center;
+            .pull-left, .pull-right {
+                float: none !important;
+            }
+            .pull-left + .pull-right {
+                margin-top: 10px;
+            }
+        }
+
+    /********************* HOME PAGE 2 ***********************/
+    
+        .homepage-parallax {
+            .title {
+                font-size: 3rem;
+            }
+        }
+
+        .block-icon-2 {
+            padding: 20px 15px;
+        }
+
+    /********************* HOME PAGE 3 ***********************/
+        .position-center {
+            float: left;
+            margin: 0;
+        }
+
+        .about-us {
+            .col-sm-4.col-xs-6 {
+                width: 100%;
+                margin-top: 30px;
+                &:first-child {
+                    margin-top: 0;
+                }
+            }
+        }
+
+        .banner-5 {
+            .col-sm-4.col-xs-6 {
+                width: 100%;
+                margin-top: 30px;
+                &:first-child {
+                    margin-top: 0;
+                }
+            }
+        }
+
+    /********************* BLOG ***********************/
+        .blog-author {
+            background-color: #f9f9f9;
+            text-align: center;
+            .media-left {
+                vertical-align: top;
+                padding: 20px;
+                width: auto;
+                display: inline-block;
+            }
+            .media-right {
+                display: block;
+                width: 100%;
+                padding: 0;
+                &:before {
+                    display: none;
+                }
+            }
+        }
+
+        .blog-detail-wrapper .block-video:before {
+            padding-top: 60%;
+        }
+
+        .blog-comment .comment-list {
+            .parent {
+                background-color: #f9f9f9;
+                padding: 20px;
+                margin-bottom: 20px;
+            }
+            .comment-list-children {
+                margin-left: 0;
+            }
+            .comment-item:not(:last-child) {
+                margin-bottom: 20px;
+            }
+        }
+
+        .leave-comment {
+            margin-top: 50px;
+            .comment-form {
+                .col-50 {
+                    width: 100%;
+                    padding: 0 !important;
+                    margin-bottom: 10px;
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+
+    /********************* BLOG LIST ***********************/
+        .topbar-control .result-filter-wrapper + .btn-list-grid {
+            float: left;
+            margin-left: 0;
+            margin-top: 10px;
+        }
+
+        .topbar-control {
+            padding: 15px;
+        }
+
+        .topbar-control .result-filter-wrapper .selection-bar .select-wrapper {
+            width: 125px;
+        }
+
+        .list-block {
+            &.column-2 {
+                .item:nth-child(-n + 2) {
+                    margin-top: 30px;
+                }
+                .item:first-child {
+                    margin-top: 0;
+                }
+                >.item {
+                    width: 100%;
+                    margin-top: 30px;
+                }
+            }
+        }
+
+        .blog-masonry {
+            .item {
+                width: 100%;
+            }
+            .item:nth-child(-n + 2) {
+                margin-top: 30px;
+            }
+            .item:first-child {
+                margin-top: 0;
+            }
+            >.item {
+                width: 100%;
+                margin-top: 30px;
+            }
+        }
+
+        .block-6 {
+            .block-image, .block-content {
+                display: block;
+            }
+            .block-image {
+                width: 100%;
+                max-width: none;
+                border-right: none;
+                border-bottom: 1px solid #ededed;
+            }
+        }
+
+        .block-1 .block-blockquote .img-full {
+            height: auto;
+        }
+
+    /********************* CONTACT ***********************/
+        .contact-method .method-item {
+            padding: 30px 0;
+            i {
+                margin-bottom: 30px;
+            }
+            .sub {
+                margin-bottom: 20px;
+            }
+        }
+
+    /********************* ABOUT US *********************/
+        .tab-vertical .tab-list-wrapper {
+            margin-bottom: 30px;
+        }
+        .tab-vertical .tab-list li {
+            display: block;
+            width: 100%;
+            text-align: left !important;
+            + li {
+                margin-top: 15px;
+            }
+        }
+
+    /********************* CHECK OUT *********************/
+        .woocommerce-checkout-payment {
+            .payment_method_paypal {
+                .about_paypal {
+                    display: block;
+                }
+            }
+        }
+        .shop-table {
+            .cart-item {
+                .product-thumbnail {
+                    width: 60px;
+                    .wrapper-thumbnail {
+                        width: 60px;
+                        height: 60px;
+                    }
+                } 
+            }
+        }
+        .your-order {
+            .shop-table {
+                thead {
+                    .product-subtotal {
+                        width: 32%;
+                    }
+                }
+                .cart-item {
+                    .product-quantity {
+                        width: 30px;
+                    }
+                }
+            }
+        }
+        .shippingForm,
+        .billdingForm {
+            .main-titles-2 .title {
+                font-size: 2.5rem;
+            }
+        }
+    
+    /********************* SHOPPING CART *********************/
+        .shopping-cart {
+            .cart-totals {
+                // .subtotal {
+                //     padding-top: 10px;
+                // }
+                .col-md-7 {
+                    width: 230px;
+                }
+                .col-md-5 {
+                    width: calc(~"100% - 230px");
+                }
+                .btn-shopping-clear {
+                    margin-top: 15px;
+                }
+            }  
+        }  
+}
+
+/*----------  1.6. Media screen max width 414px  ----------*/
+@media screen and (max-width: 414px) {
+
+    /********************* HOME PAGE ***********************/
+        .main-titles .title {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+        }
+
+    /********************* HOME PAGE 2 ***********************/
+        .about-us {
+            .col-md-3.col-xs-6 {
+                width: 100%;
+                &:nth-child(-n + 2) {
+                    margin-top: 30px;
+                }
+                &:first-child {
+                    margin-top: 0;
+                }
+            }
+        }
+
+        .banner-3 {
+            padding: 60px 15px;
+        }
+
+        .block-2 .block-content, .block-1 .block-content {
+            padding: 20px 15px;
+        }
+
+    /********************* HOME PAGE 2 ***********************/
+        .topbar-control .result-filter-wrapper .selection-bar {
+            float: left;
+            margin-top: 10px;
+        }
+
+        .shippingForm,
+        .billdingForm {
+            form {
+                .col-xs-6 {
+                    width: 100%;
+                }
+            }
+        }
+    
+    /********************* SHOPPING CART *********************/
+        .shopping-cart {
+            .cart-totals {
+                text-align: center;
+                .col-md-7, .col-md-5 {
+                    width: 100%;
+                }
+                .subtotal {
+                    margin-top: 0;
+                }
+            }
+            .product-categories {
+                display: none;
+            }
+        }  
+    
+    /********************* SHOP DETAIL *********************/
+        .info-detail {
+            .list-info {
+                & > li {
+                    width: 100%;
+                    &:nth-child(-n + 2) {
+                        margin-top: 7px;
+                    }
+                    &:first-child {
+                        margin-top: 0;
+                    }
+                }
+            }
+            .btn-addtocwishlish {
+                margin-top: 20px;
+            }
+        }
+}
+
+/*----------  1.7. Media screen max width 380px  ----------*/
+@media screen and (max-width: 380px) {
+    
+    /********************* HOME PAGE 2 ***********************/
+        .gallery-grid-2 {
+            .grid-item {
+                width: 100%;
+                &:before {
+                    padding-top: 80%;
+                }
+                &.grid-item-width-2 {
+                    width: 100%;
+                    &:before {
+                        padding-top: 40%;
+                    }
+                }
+                &.grid-item-height-2 {
+                    &:before {
+                        padding-top: 160%;
+                    }
+                }
+                &.grid-item-width-2.grid-item-height-2 {
+                    width: 100%;
+                    &:before {
+                        padding-top: 80%;
+                    }
+                }
+            }
+        }
+}
+
+/*----------  1.8. Media screen max width 320px  ----------*/
+@media screen and (max-width: 320px) {
+
+
+    /********************* HOME PAGE ***********************/
+    
+}

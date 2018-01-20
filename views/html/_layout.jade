@@ -22,9 +22,10 @@ html(lang="en")
         link(type="text/css", rel="stylesheet", href="assets/libs/slick-slider/slick-theme.css")
 
         // STYLE CSS
-        link(type="text/css", rel="stylesheet", href="assets/css/layout.css")
-        link(type="text/css", rel="stylesheet", href="assets/css/components.css")
-        link(type="text/css", rel="stylesheet", href="assets/css/responsive.css")
+        link(type="text/css", rel="stylesheet", href="assets/css/styles.css")
+        //- link(type="text/css", rel="stylesheet", href="assets/css/layout.css")
+        //- link(type="text/css", rel="stylesheet", href="assets/css/components.css")
+        //- link(type="text/css", rel="stylesheet", href="assets/css/responsive.css")
 
         for page, key in public._data
             if(current.source == key)
@@ -51,6 +52,9 @@ html(lang="en")
                 #back-top
                     a.link(href="#top")
                         i.fa.fa-angle-double-up
+        
+        // Authencation form
+        != partial("_includes/form/authencation")
 
         // LIBRARY JS
         script(src="assets/libs/jquery/jquery-2.2.4.min.js")

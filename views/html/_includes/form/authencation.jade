@@ -1,0 +1,47 @@
+#register.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
+    .modal-dialog(role='document')
+        .modal-content
+            .wrapper-model-content
+                .main-titles-2.text-center
+                    .title Register
+                    form.contact-form#contactForm(novalidate)
+                        .row
+                            .col-sm-12
+                                .form-group
+                                    label.form-label EMAIL <span class="highlight">*</span>
+                                    input.form-control#email(type="email", required data-validation-required-message="Please enter your email address.")
+                                    p.help-block.text-danger
+                            .col-sm-12
+                                .form-group
+                                    label.form-label PASSWORD <span class="highlight">*</span>
+                                    input.form-control#email(type="password", required data-validation-required-message="Please enter your password.")
+                                    p.help-block.text-danger
+                        #register.margin-top-20
+                            button.btn.btn-maincolor(type="submit") Submit
+                            button.btn.btn-transparent.style-02(type='button', data-dismiss='modal') Close
+                //- .model-close
+                //-     button.btn.btn-maincolor(type='button', data-dismiss='modal') Close
+
+#login.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
+    .modal-dialog(role='document')
+        .modal-content
+            .wrapper-model-content
+                .main-titles-2.text-center
+                    .title Login
+                    form.contact-form#contactForm(novalidate)
+                        .row
+                            .col-sm-12
+                                .form-group
+                                    label.form-label EMAIL <span class="highlight">*</span>
+                                    input.form-control#email(type="email", required data-validation-required-message="Please enter your email address.")
+                                    p.help-block.text-danger
+                            .col-sm-12
+                                .form-group
+                                    label.form-label PASSWORD <span class="highlight">*</span>
+                                    input.form-control#email(type="password", required data-validation-required-message="Please enter your password.")
+                                    p.help-block.text-danger
+                        #register.margin-top-20
+                            button.btn.btn-maincolor(type="submit") Login
+                            button.btn.btn-transparent.style-02(type='button', data-dismiss='modal') Close
+                //- .model-close
+                //-     button.btn.btn-maincolor(type='button', data-dismiss='modal') Close

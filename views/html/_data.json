@@ -1,0 +1,13 @@
+{
+    "index": {
+        "title": "Home Default",
+        "nav": "Home Default",
+        "url_style": [
+        ],
+        "url_script": [
+            {
+                "src": "assets/libs/parallax/jquery.parallax-scroll.min.js"
+            }
+        ]
+    }
+}
