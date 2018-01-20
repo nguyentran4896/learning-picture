@@ -30,7 +30,8 @@ function shareController($scope, $window, $firebaseObject, $firebaseArray, $http
     $scope.$apply()
   });
 
-  $scope.setSelected = function (index) {
+  $scope.setSelected = function (index, userSelect) {
+    if(userSelect) return;
     firebase.database().ref().child('/rooms/-L3Hfgf52LU1R4YjcR-p/images/-L3Hq7a7tuZZFQK0ex75/array/' + index + '/userSelect').set($scope.userKey);
   }
 
