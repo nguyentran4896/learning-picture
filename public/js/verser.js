@@ -20,16 +20,18 @@ function shareController($scope, $window, $firebaseObject, $firebaseArray, $http
   var storageRef = firebase.storage().ref();
   var databaseRef = firebase.database().ref();
 
+  $scope.userKey = '-L3I1yOdARJ04__UucsK'
+
   $scope.series = [];
   $scope.isChoosingImage = false;
 
-  firebase.database().ref().child('/rooms/-L3Hfgf52LU1R4YjcR-p/images/-L3Hp71IPNuxVy4XHZcT/array').on('value',function(snapshot){
+  firebase.database().ref().child('/rooms/-L3Hfgf52LU1R4YjcR-p/images/-L3Hq7a7tuZZFQK0ex75/array').on('value',function(snapshot){
     $scope.array = snapshot.val()
     $scope.$apply()
   });
 
   $scope.setSelected = function (index) {
-    firebase.database().ref().child('/rooms/-L3Hfgf52LU1R4YjcR-p/images/-L3Hp71IPNuxVy4XHZcT/array/' + index + '/userSelect').set('1');
+    firebase.database().ref().child('/rooms/-L3Hfgf52LU1R4YjcR-p/images/-L3Hq7a7tuZZFQK0ex75/array/' + index + '/userSelect').set($scope.userKey);
   }
 
   $("#drop-area").dmUploader({

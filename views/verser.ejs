@@ -78,7 +78,7 @@
   <div class="container-fluid" style="font-size:20px; font-weight:bold" ng-show="!isChoosingImage">
     <div ng-repeat="card in array"
     ng-click="setSelected($index)"
-    class="col-xs-3" style="height:100px;border:1px solid #000; {{ card.userSelect.length > 0? 'background:#ddd':'' }}">
+    class="col-xs-3" style="height:100px;border:1px solid #000; {{ 'background:' + (card.userSelect == userKey ? 'green' : (card.userSelect == '' ? '' : 'red')) }}">
       {{ card.name }}
     </div>
   </div>
