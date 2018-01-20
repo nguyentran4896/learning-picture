@@ -73,12 +73,13 @@
 
   </div>
   <div>
-    <img src="" class="hide" alt="img" width="200" height="200" style="object-fit:contain">
+    <img src="https://firebasestorage.googleapis.com/v0/b/elpicture-86fb4.appspot.com/o/images%2Fmountains.jpg?alt=media&token=d18938bb-d22a-4dcb-a372-e46aa4ed5841" alt="img" width="200" height="200" style="object-fit:contain">
   </div>
   <div class="container-fluid" style="font-size:20px; font-weight:bold" ng-show="!isChoosingImage">
     <div ng-repeat="card in array"
     ng-click="setSelected($index)"
-    class="col-xs-3" style="height:100px;border:1px solid #000; {{ 'background:' + (card.userSelect == userKey ? 'green' : (card.userSelect == '' ? '' : 'red')) }}">
+    class="col-xs-3 {{ (card.userSelect == userKey ? 'active' : (card.userSelect == '' ? '' : 'inactive')) }}"
+    style="height:100px;border:1px solid #000;">
       {{ card.name }}
     </div>
   </div>
