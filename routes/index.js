@@ -8,8 +8,13 @@ router.get('/', function (req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+
 router.get('/audio', function(req, res, next) {
   res.render('audio', { title: 'Audio' });
+}
+
+router.get('/verser', function (req, res, next) {
+  res.render('verser', { title: 'Express' });
 });
 
 // combine text and translated text in one object
@@ -37,11 +42,13 @@ router.post('/translate-arr', function (req, res, next) {
     translateText(text, function (str) {
       arr.push({
         text: text,
-        id: count
+        id: count,
+        userSelect: ''
       })
       arr.push({
         text: str,
-        id: count
+        id: count,
+        userSelect: ''
       })
 
       count++
@@ -54,8 +61,8 @@ router.post('/translate-arr', function (req, res, next) {
 });
 
 function translateText(text, callback) {
-  translate(text, { from: 'en', to: 'vi' }).then(res => {
-    console.log(res.text);
+  translate(text, { from: 'en', to: 'vi', raw: true }).then(res => {
+    console.log(res)
     return callback(res.text)
   }).catch(err => {
     console.error(err);

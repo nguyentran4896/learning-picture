@@ -23,6 +23,7 @@ html(lang="en")
 
         // STYLE CSS
         link(type="text/css", rel="stylesheet", href="assets/css/styles.css")
+        link(type="text/css", rel="stylesheet", href="assets/css/upload.css")
         //- link(type="text/css", rel="stylesheet", href="assets/css/layout.css")
         //- link(type="text/css", rel="stylesheet", href="assets/css/components.css")
         //- link(type="text/css", rel="stylesheet", href="assets/css/responsive.css")
@@ -41,7 +42,10 @@ html(lang="en")
             .wrapper-content
                 // HEADER
                 header
-                    != partial("_includes/header/header")
+                    if (current.source == "index")
+                        != partial("_includes/header/header")
+                    else  
+                        != partial("_includes/header/header-02")
 
                 // MAIN CONTENT
                 .main-contents
@@ -54,7 +58,8 @@ html(lang="en")
                         i.fa.fa-angle-double-up
         
         // Authencation form
-        != partial("_includes/form/authencation")
+        if (current.source == "index")
+            != partial("_includes/form/authencation")
 
         // LIBRARY JS
         script(src="assets/libs/jquery/jquery-2.2.4.min.js")

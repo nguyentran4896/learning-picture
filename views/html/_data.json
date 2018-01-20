@@ -9,5 +9,16 @@
                 "src": "assets/libs/parallax/jquery.parallax-scroll.min.js"
             }
         ]
+    },
+    "upload": {
+        "title": "Upload Page",
+        "nav": "Upload Page",
+        "url_style": [
+        ],
+        "url_script": [
+            {
+                "src": "assets/libs/parallax/jquery.parallax-scroll.min.js"
+            }
+        ]
     }
 }
