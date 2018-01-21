@@ -135,19 +135,31 @@
 								</div>
 							</div>
 						</div>
+					
+						<div class="wrapper-review-image text-center">
+							<div class="review-image">
+								<img src="" alt="img">
+							</div>
 						</div>
-
-						<div class="flip-card panel" ng-repeat="card in cardArr">
-              <div class="front">
-                <div class="pad">
-                    <h2>{{card.text}}</h2>
-                </div>
-              </div>
-              <div class="back">
-                  <div class="pad">
-                  <h2>{{card.transated}}</h2></div>
-              </div>
-            </div>
+						<div class="list-items list-col-5">
+							<div class="item" ng-repeat="card in cardArr">
+								<div class="flip-card panel">
+									<div class="front">
+										<div class="pad">
+											{{card.text}}
+										</div>
+									</div>
+									<div class="back">
+										<div class="pad">
+											{{card.transated}}
+										</div>
+										<div class="speaker"><img src="images/more-image/megaphone.png" alt=""></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+						
 						<!-- Flip card -->
 					</div>
 				</section>
