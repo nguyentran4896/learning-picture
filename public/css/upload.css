@@ -166,8 +166,7 @@
 
 .review-image {
     margin: 0 auto;
-    display: block;
-    max-width: 720px;
+    display: inline-block;
     background-color: #fff;
     border-radius: 10px;
     -webkit-border-radius: 10px;
@@ -182,12 +181,13 @@
 }
 
 .review-image img {
-    width: calc(100% - 30px);
+    width: auto;
     height: auto;
     margin: 15px;
     border-radius: 10px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
+    max-height: 500px;
 }
 
 .list-keywords {
