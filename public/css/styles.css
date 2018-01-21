@@ -1359,6 +1359,33 @@ a:focus {
 	position: fixed;
     width: 300px;
     z-index: 20;
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0);
+}
+#live-chat.hidden-chat {
+    -webkit-transform: translateY( calc(100% - 40px) );
+    -ms-transform: translateY( calc(100% - 40px) );
+    -o-transform: translateY( calc(100% - 40px) );
+    transform: translateY( calc(100% - 40px) );
+}
+#live-chat.hidden-chat .chat-close {
+    font-size: 0;
+    position: relative;
+}
+#live-chat.hidden-chat .chat-close:before {
+    content: "\f102";
+    font-family: 'FontAwesome';
+    display: block;
+    position: absolute;
+    top: 0px;
+    font-size: 12px;
+    left: 4px;
+    font-weight: 700;
 }
 
 #live-chat header {
@@ -1366,7 +1393,7 @@ a:focus {
 	border-radius: 5px 5px 0 0;
 	color: #fff;
 	cursor: pointer;
-	padding: 16px 24px;
+	padding: 12px 20px;
 }
 
 #live-chat h4:before {
@@ -1381,10 +1408,17 @@ a:focus {
 
 #live-chat h4 {
 	font-size: 12px;
+    margin: 0;
+    line-height: 16px;
 }
 
 #live-chat h5 {
 	font-size: 10px;
+    margin-top: 0;
+    margin-bottom: 5px;
+    text-transform: capitalize;
+    font-weight: 700;
+    color: #0079bf;
 }
 
 #live-chat form {
@@ -1394,9 +1428,9 @@ a:focus {
 #live-chat input[type="text"] {
 	border: 1px solid #ccc;
 	border-radius: 3px;
-	padding: 8px;
+	padding: 8px 20px;
 	outline: none;
-	width: 234px;
+	width: 100%;
 }
 
 .chat-message-counter {
@@ -1417,15 +1451,14 @@ a:focus {
 }
 
 .chat-close {
-	background: #1b2126;
+	background: #fff;
 	border-radius: 50%;
-	color: #fff;
+	color: #333;
 	display: block;
 	float: right;
 	font-size: 10px;
 	height: 16px;
 	line-height: 16px;
-	margin: 2px 0 0 0;
 	text-align: center;
 	width: 16px;
 }
@@ -1436,29 +1469,90 @@ a:focus {
 
 .chat-history {
 	height: 252px;
-	padding: 8px 24px;
+	padding: 0;
 	overflow-y: scroll;
 }
 
 .chat-message {
-	margin: 16px 0;
+	margin: 10px 0;
+    padding: 0 20px;
+    font-size: 0;
+}
+.chat-message:nth-child(even) {
+    background-color: #ccc;
+    padding: 10px 20px;
 }
 
 .chat-message img {
 	border-radius: 50%;
-	float: left;
+	display: inline-block;
+    vertical-align: middle;
+    width: 40px;
+    height: 40px;
+    background-color: #333;
 }
 
 .chat-message-content {
-	margin-left: 56px;
+	display: inline-block;
+    vertical-align: middle;
+    font-size: 12px;
+    width: -moz-calc(100% - 40px);
+    width: -webkit-calc(100% - 40px);
+    width: calc(100% - 40px);
+    padding-left: 15px;
+}
+.chat-message-content p {
+    margin-bottom: 0;
+    line-height: 1.2;
 }
 
 .chat-time {
 	float: right;
 	font-size: 10px;
+    line-height: 1.3;
 }
 
 .chat-feedback {
 	font-style: italic;	
 	margin: 0 0 0 80px;
+}
+
+.wrapper-gamer {
+    position: fixed;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+    z-index: 10;
+    left: 15px;
+    font-size: 0;
+}
+
+.wrapper-gamer [class*="gamer-"] {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 6px 10px rgba(0,0,0,0.2);
+    min-width: 150px;
+}
+.wrapper-gamer .user-avatar {
+    margin-right: 10px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.wrapper-gamer .name {
+    width: -moz-calc(100% - 40px);
+    width: -webkit-calc(100% - 40px);
+    width: calc(100% - 40px);
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 16px;
+}
+.wrapper-gamer .user-point {
+    font-size: 16px;
+    text-align: right;
+}
+.wrapper-gamer .gamer-02 {
+    margin-top: 20px;
 }

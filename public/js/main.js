@@ -345,6 +345,17 @@ jQuery(function($) {
         }
     };
 
+    learnEnglish.nicescroll = function(){
+        $('#live-chat .chat-history').niceScroll({
+            cursorcolor: "#1b2126",
+            cursorwidth: "7px"
+        });
+
+        $('#live-chat .chat-close').click(function(){
+            $("#live-chat").toggleClass("hidden-chat");
+        });
+    };
+
     /*======================================
     =            INIT FUNCTIONS            =
     ======================================*/
@@ -356,6 +367,7 @@ jQuery(function($) {
         learnEnglish.home_slider();
         learnEnglish.uploader();
         learnEnglish.countDown();
+        learnEnglish.nicescroll();
     });
 
     /*=====  End of INIT FUNCTIONS  ======*/
