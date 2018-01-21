@@ -48,75 +48,48 @@ jQuery(function($) {
     learnEnglish.headerFunction = function() {
         //js for menu PC
         // Add class fixed for menu when scroll
-        var window_height = $(window).height();
+        console.log( $(window).width() );
+        if( $(window).width() > 991 ) {
+            var window_height = $(window).height();
 
-        $(window).on('scroll load', function (event) {
-            if ($(window).scrollTop() > window_height) {
-                $(".header-main").addClass('header-fixed');
-            }
-            else {
-                $(".header-main").removeClass('header-fixed');
-                $(".header-main").removeClass('hide-menu');
-            }
-        });
-
-        // Show menu when scroll up, hide menu when scroll down
-        var lastScroll = 50;
-        $(window).on('scroll load', function (event) {
-            var st = $(this).scrollTop();
-            if (st > lastScroll) {
-                $('.header-main').addClass('hide-menu');
-                if ($('.nav-search').hasClass('hide') === false) {
-                    $('.nav-search').toggleClass('hide');
+            $(window).on('scroll load', function (event) {
+                if ($(window).scrollTop() > window_height) {
+                    $(".header-main").addClass('header-fixed');
                 }
-            }
-            else if (st < lastScroll) {
-                $('.header-main').removeClass('hide-menu');
-            }
+                else {
+                    $(".header-main").removeClass('header-fixed');
+                    $(".header-main").removeClass('hide-menu');
+                }
+            });
 
-            if ($(window).scrollTop() <= 200 ){
-                $('.header-main').removeClass('.header-fixed').removeClass('hide-menu');
-            }
-            else if ($(window).scrollTop() < window_height && $(window).scrollTop() > 0) {
-                $('.header-main').addClass('hide-menu');
-            }
-            lastScroll = st;
-        });
+            // Show menu when scroll up, hide menu when scroll down
+            var lastScroll = 50;
+            $(window).on('scroll load', function (event) {
+                var st = $(this).scrollTop();
+                if (st > lastScroll) {
+                    $('.header-main').addClass('hide-menu');
+                    if ($('.nav-search').hasClass('hide') === false) {
+                        $('.nav-search').toggleClass('hide');
+                    }
+                }
+                else if (st < lastScroll) {
+                    $('.header-main').removeClass('hide-menu');
+                }
+
+                if ($(window).scrollTop() <= 200 ){
+                    $('.header-main').removeClass('.header-fixed').removeClass('hide-menu');
+                }
+                else if ($(window).scrollTop() < window_height && $(window).scrollTop() > 0) {
+                    $('.header-main').addClass('hide-menu');
+                }
+                lastScroll = st;
+            });
+        }
 
         
-        // Show - hide box search on menu
-        $('.button-search').on('click', function () {
-            $('.nav-search').toggleClass('hide');
-            $('.nav-search input').focus();
-        });
-
-        //hide box seach when click outside
-        $('body').on('click', function (event) {
-            if ($('.button-search').has(event.target).length === 0 && !$('.button-search').is(event.target) && $('.nav-search').has(event.target).length === 0 && !$('.nav-search').is(event.target)) {
-                if ($('.nav-search').hasClass('hide') === false) {
-                    $('.nav-search').toggleClass('hide');
-                }
-            }
-        });
-
-        // Menu Mobile
-        $(".wrapper-menu-mobile").css("min-height", $(window).height());
-        $(".wrapper-search-mobile").css("min-height", $(window).height());
-
         // show menu
-        $(".hamburger-menu-mobile").on("click", function(){
-            $('body').addClass("open-menu-mobile");
-        });
-        $(".mb-button-close").on("click", function(){
-            $('body').removeClass("open-menu-mobile");
-        });
-
-        //show search
-        $(".button-search-mobile").on("click", function(){
-            $('body').addClass("open-search-mobile");
-        });
-        $(".mb-button-close").on("click", function(){
-            $('body').removeClass("open-search-mobile");
+        $(".hamburger-menu").on("click", function(){
+            $('body').toggleClass("open-menu-mobile");
         });
 
 
