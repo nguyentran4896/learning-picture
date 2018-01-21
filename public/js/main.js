@@ -346,14 +346,16 @@ jQuery(function($) {
     };
 
     learnEnglish.nicescroll = function(){
-        $('#live-chat .chat-history').niceScroll({
-            cursorcolor: "#1b2126",
-            cursorwidth: "7px"
-        });
+        if( $("#live-chat").length ) {
+            $('#live-chat .chat-history').niceScroll({
+                cursorcolor: "#1b2126",
+                cursorwidth: "7px"
+            });
 
-        $('#live-chat .chat-close').click(function(){
-            $("#live-chat").toggleClass("hidden-chat");
-        });
+            $('#live-chat .chat-close').click(function(){
+                $("#live-chat").toggleClass("hidden-chat");
+            });
+        }
     };
 
     /*======================================
