@@ -1,90 +1,114 @@
 
-@-webkit-keyframes spin1 {
-    0% {
-        -webkit-transform: rotate(0);
-        transform: rotate(0)
-    }
+.sk-chasing-dots {
+    margin: 40px auto;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    text-align: center;
+    -webkit-animation: sk-chasingDotsRotate 2s infinite linear;
+    animation: sk-chasingDotsRotate 2s infinite linear;
+}
+
+.wrapper-loader-dots {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    z-index: 1050;
+    opacity: 1;
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.sk-chasing-dots .sk-child {
+    width: 60%;
+    height: 60%;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    background-color: #fff;
+    border-radius: 100%;
+    -webkit-animation: sk-chasingDotsBounce 2s infinite ease-in-out;
+    animation: sk-chasingDotsBounce 2s infinite ease-in-out;
+}
+
+.sk-chasing-dots .sk-dot2 {
+    top: auto;
+    bottom: 0;
+    -webkit-animation-delay: -1s;
+    animation-delay: -1s;
+}
+
+@-webkit-keyframes sk-chasingDotsRotate {
     100% {
-        -webkit-transform: rotate(360deg);
-        transform: rotate(360deg)
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
     }
 }
 
-@keyframes spin1 {
-    0% {
-        -webkit-transform: rotate(0);
-        transform: rotate(0)
-    }
+@keyframes sk-chasingDotsRotate {
     100% {
-        -webkit-transform: rotate(360deg);
-        transform: rotate(360deg)
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
     }
 }
 
-@-webkit-keyframes spin2 {
-    0% {
-        -webkit-transform: rotate(72deg);
-        transform: rotate(72deg)
-    }
+@-webkit-keyframes sk-chasingDotsBounce {
+    0%,
     100% {
-        -webkit-transform: rotate(-288deg);
-        transform: rotate(-288deg)
+      -webkit-transform: scale(0);
+      transform: scale(0);
+    }
+    50% {
+      -webkit-transform: scale(1);
+      transform: scale(1);
     }
 }
 
-@keyframes spin2 {
-    0% {
-        -webkit-transform: rotate(72deg);
-        transform: rotate(72deg)
-    }
+@keyframes sk-chasingDotsBounce {
+    0%,
     100% {
-        -webkit-transform: rotate(-288deg);
-        transform: rotate(-288deg)
+      -webkit-transform: scale(0);
+      transform: scale(0);
+    }
+    50% {
+      -webkit-transform: scale(1);
+      transform: scale(1);
     }
 }
 
-@-webkit-keyframes spin3 {
-    0% {
-        -webkit-transform: rotate(-144deg);
-        transform: rotate(-144deg)
-    }
-    100% {
-        -webkit-transform: rotate(216deg);
-        transform: rotate(216deg)
-    }
+.pre-loader {
+    position: relative; 
 }
-
-@keyframes spin3 {
-    0% {
-        -webkit-transform: rotate(-144deg);
-        transform: rotate(-144deg)
-    }
-    100% {
-        -webkit-transform: rotate(216deg);
-        transform: rotate(216deg)
-    }
+.pre-loader:before {
+    content: '';
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0);
+    z-index: 1000;
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    display: block;
+    opacity: 1;
 }
-
-@-webkit-keyframes spin4 {
-    0% {
-        -webkit-transform: rotate(216deg);
-        transform: rotate(216deg)
-    }
-    100% {
-        -webkit-transform: rotate(-144deg);
-        transform: rotate(-144deg)
-    }
+.pre-loader.loader:before {
+    background-color: rgba(0,0,0,0.6);
 }
-
-@keyframes spin4 {
-    0% {
-        -webkit-transform: rotate(216deg);
-        transform: rotate(216deg)
-    }
-    100% {
-        -webkit-transform: rotate(-144deg);
-        transform: rotate(-144deg)
-    }
+.pre-loader:not(.loader):before {
+    pointer-events: none;
+    opacity: 0;
+}
+.pre-loader:not(.loader) .wrapper-loader-dots{
+    pointer-events: none;
+    opacity: 0;
 }
 
 html * {

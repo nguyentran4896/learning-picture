@@ -129,7 +129,7 @@ function homeController($scope, $window, $firebaseObject, $firebaseArray, $http)
           $scope.cardArr = res.arr
           console.log($scope.cardArr)
           $scope.$apply()
-          $('body').addClass('loader');
+          $('body').removeClass('loader');
           $('.flip-card').hover(function(){
               $(this).addClass('flip');
           },function(){
