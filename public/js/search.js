@@ -24,6 +24,7 @@ function homeController($scope, $window, $firebaseObject, $firebaseArray, $http)
   $scope.isChoosingImage = true;
 
   $scope.languageText = COMMON.getCookie('languageText')
+  $scope.userName = COMMON.getCookie('userName')
 
   $scope.array = $firebaseArray(firebase.database().ref());
 
@@ -32,7 +33,6 @@ function homeController($scope, $window, $firebaseObject, $firebaseArray, $http)
       uploadFileToFirebase(file)
     }
   })
-
 
   $scope.uploadImage = function (fileInput) {
     let file = $(fileInput)[0].files[0]

@@ -39,7 +39,6 @@ function homeController($scope, $window, $firebaseObject, $firebaseArray, $http)
     }
   })
 
-
   $scope.uploadImage = function (fileInput) {
     let file = $(fileInput)[0].files[0]
     uploadFileToFirebase(file)
