@@ -285,7 +285,8 @@ a:focus {
 
 .header-main.header-fixed .logo-wrapper a {
     font-size: 25px;
-    display: block
+    display: block;
+    line-height: initial;
 }
 
 .header-main.header-fixed .logo-wrapper .logo img {
