@@ -34,7 +34,7 @@
 	<script src="/js/common.js"></script>
 	<script type="text/javascript" src="/js/verser.js"></script>
 <style>
-	.preview-img {
+	/*.preview-img {
 		width: 64px;
 		height: 64px;
 	}
@@ -60,8 +60,8 @@
 		border-color: red;
 
 		border-style: solid;
-	}
-	.card.active {
+	}*/
+	/*.card.active {
 		background-color: green;
 	}
 	.card.inactive {
@@ -69,7 +69,7 @@
 	}
 	.card.wrong {
 		background-color: #ddd;
-	}
+	}*/
 
 </style>
 </head>
@@ -84,6 +84,12 @@
 				<div class="bg-transparent">
 					<div class="header-topbar">
                         <div class="container">
+                        	<ul class="topbar-left list-unstyled list-inline">
+                                <li>
+                                	<img class="user-avatar" width="30" src="https://scontent-hkg3-1.xx.fbcdn.net/v/t1.0-9/18740419_1398808056874032_6423833359628514647_n.jpg?oh=89d30eede3cc2c6756a72ffe42d14f16&oe=5AE1ACB2" alt="">
+                                	<a href="#" class="link">Lý Nhân</a>
+                                </li>
+                            </ul>
                             <ul class="topbar-right list-unstyled list-inline style-2">
                                 <li class="sub-menu"><a href="javascript:void(0)" class="link"> <span>Language Translate</span><i class="icons-2 fa fa-angle-double-down"></i></a>
                                     <ul class="dropdown-topbar">
@@ -114,29 +120,32 @@
 			</header>
 			<!-- MAIN CONTENT-->
 			<div class="main-contents">
-				<section class="wrapper-verser padding-top-100 padding-bottom-100">
+				<section class="wrapper-verser padding-top-160 padding-bottom-100">
 					<div class="container">
-					<!--  -->
-					<div class="col-xs-12" ng-show="isChoosingImage">
-						
-						<input type="text" id="input" value="https://firebasestorage.googleapis.com/v0/b/elpicture-86fb4.appspot.com/o/images%2Fmountains.jpg?alt=media&token=e2359c6e-69da-4afd-bc35-4b5ca4e8ca39">
 
-						<button id="button">go go go</button>
+						<div class="col-xs-12" ng-show="isChoosingImage">
+							
+							<input type="text" id="input" value="https://firebasestorage.googleapis.com/v0/b/elpicture-86fb4.appspot.com/o/images%2Fmountains.jpg?alt=media&token=e2359c6e-69da-4afd-bc35-4b5ca4e8ca39">
 
-						<div id="drop-area" class="dm-uploader text-center" style="height: 300px">
-							<h3>Drag &amp; drop Images here</h3>
-							<div class="btn btn-primary ">
-								<span>Open the file Browser</span>
-								<input type="file" title="Click to add Files" id="file" name='file' onchange="angular.element(this).scope().uploadImage(this)"/>
+							<button id="button">go go go</button>
+
+							<div id="drop-area" class="dm-uploader text-center" style="height: 300px">
+								<h3>Drag &amp; drop Images here</h3>
+								<div class="btn btn-primary ">
+									<span>Open the file Browser</span>
+									<input type="file" title="Click to add Files" id="file" name='file' onchange="angular.element(this).scope().uploadImage(this)"/>
+								</div>
+							</div>
+
+						</div>
+
+						<div class="wrapper-review-image text-center">
+							<div class="review-image has-image">
+								<img src="https://firebasestorage.googleapis.com/v0/b/elpicture-86fb4.appspot.com/o/images%2Fmountains.jpg?alt=media&token=e2359c6e-69da-4afd-bc35-4b5ca4e8ca39" alt="img">
 							</div>
 						</div>
 
-					</div>
-					<div class="review-image has-image">
-						<img src="https://firebasestorage.googleapis.com/v0/b/elpicture-86fb4.appspot.com/o/images%2Fmountains.jpg?alt=media&token=e2359c6e-69da-4afd-bc35-4b5ca4e8ca39" alt="img" width="200" height="200" style="object-fit:contain">
-					</div>
-
-					<div class="container-fluid" style="font-size:20px; font-weight:bold" ng-show="!isChoosingImage">
+					<!-- <div class="container-fluid" style="font-size:20px; font-weight:bold" ng-show="!isChoosingImage">
 						<div ng-repeat="card in array"
 						ng-click="setSelected($index, card)"
 						class="col-xs-3 card" ng-class="{'active' : card.userSelect == userKey,
@@ -147,8 +156,23 @@
 						style="height:100px;border:1px solid #000;">
 							{{ card.name }}
 						</div>
+					</div> -->
+					
+					<div class="list-items list-col-5" ng-show="!isChoosingImage">
+						<div class="item" ng-repeat="card in array">
+							<div 
+							ng-click="setSelected($index, card)"
+							class="card" ng-class="{'active' : card.userSelect == userKey,
+																					'': !card.userSelect,
+																					'inactive': card.userSelect && card.userSelect != userKey && !card.isWrong,
+																					'wrong': card.isWrong && card.userSelect
+																				}">
+								<div class="text">{{ card.name }}</div>
+							</div>
+						</div>
+							
 					</div>
-					<br>
+					
 					<div class="container-fluid">
 						<div class="pull-left">
 							<div class="user-name">
