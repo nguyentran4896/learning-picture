@@ -27,6 +27,7 @@ function shareController($scope, $window, $firebaseObject, $firebaseArray, $http
 
   $scope.series = [];
   $scope.isChoosingImage = false;
+  $scope.languageText = COMMON.getCookie('languageText')
 
   dataRef.on('value',function(snapshot){
     $scope.array = snapshot.val().splice(0, 10)

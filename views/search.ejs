@@ -49,18 +49,18 @@
 			<header>
 				<div class="bg-transparent">
 					<div class="header-topbar">
-                        <div class="container">
-                            <ul class="topbar-right list-unstyled list-inline style-2">
-                                <li class="sub-menu"><a href="javascript:void(0)" class="link"> <span>Language Translate</span><i class="icons-2 fa fa-angle-double-down"></i></a>
-                                    <ul class="dropdown-topbar">
-                                        <li><a href="#" class="link"> Vietnamese</a></li>
-                                        <li><a href="#" class="link"> English</a></li>
-                                        <li><a href="#" class="link"> Japanese</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+		          <div class="container">
+		              <ul class="topbar-right list-unstyled list-inline style-2">
+		                  <li class="sub-menu"><a href="javascript:void(0)" class="link"> <span>{{ languageText }}</span><i class="icons-2 fa fa-angle-double-down"></i></a>
+		                      <ul class="dropdown-topbar">
+		                          <li><a class="link" style="cursor: pointer;" ng-click='updateLanguage("vi", "Vietnamese")'> Vietnamese</a></li>
+		                          <li><a class="link" style="cursor: pointer;" ng-click='updateLanguage("fr", "France")'> France</a></li>
+		                          <li><a class="link" style="cursor: pointer;" ng-click='updateLanguage("ja", "Japanese")'> Japanese</a></li>
+		                      </ul>
+		                  </li>
+		              </ul>
+		          </div>
+		      </div>
 					<div class="header-main">
 						<div class="container">
 							<div class="header-main-wrapper">
@@ -136,36 +136,22 @@
 							</div>
 						</div>
 
-						<!-- When chang src img, add class has-image -->
 						<div class="review-image">
 							<img src="" alt="img">
 						</div>
 
-						<div class="list-keywords">
-
-							<div class="item" ng-repeat="card in cardArr" >
-								<div class="keyword" idKey="{{ card.id }}" data-parallax="{&quot;x&quot;: 15, &quot;y&quot;: 15, &quot;rotateZ&quot;: 15}" ng-click="speakWord(card.text)">
-									{{ card.text }}
-								</div>
-							</div>
-						</div>
-
+						<div class="flip-card panel" ng-repeat="card in cardArr">
+              <div class="front">
+                <div class="pad">
+                    <h2>{{card.text}}</h2>
+                </div>
+              </div>
+              <div class="back">
+                  <div class="pad">
+                  <h2>{{card.transated}}</h2></div>
+              </div>
+            </div>
 						<!-- Flip card -->
-						<div class="flip-card panel">
-                            <div class="front">
-                                <div class="pad">
-                                    <h2>Mouse Over Me!</h2>
-                                    <p>The effect on this box can be done using 100% CSS.
-                                        <br>
-                                        <br> The other boxes all require some Javascript, but the animation is driven by CSS3.</p>
-                                </div>
-                            </div>
-                            <div class="back">
-                                <div class="pad">
-                                    <h2>check you on the flip side</h2></div>
-                            </div>
-                        </div>
-
 					</div>
 				</section>
 			</div>
@@ -178,7 +164,6 @@
 		</div>
 	</div>
 	<!-- LIBRARY JS-->
-
 	<script src="/libs/smooth-scroll/jquery-smoothscroll.min.js"></script>
 	<script src="/libs/wow-js/wow.min.js"></script>
 	<script src="/libs/slick-slider/slick.min.js"></script>

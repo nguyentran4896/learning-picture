@@ -17,22 +17,24 @@ router.get('/verser', function (req, res, next) {
 });
 
 router.get('/search', function (req, res, next) {
-  res.render('search', { title: 'Express' });
+  res.render('search', { title: 'Search By Photo' });
 });
 
 // combine text and translated text in one object
 router.post('/translate-combine', function (req, res, next) {
   let arr = []
+  let convertLanguage = req.body.convertLanguage
+
   async.eachSeries(JSON.parse(req.body.strArr), function (text, callback) {
-    translateText(text, function (str) {
+    translateText(text, convertLanguage, function (str) {
       arr.push({
         text: text,
         transated: str
       })
+
       return callback()
     })
   }, function (err) {
-    console.log(err)
     res.send({ arr: arr });
   })
 });
@@ -66,10 +68,8 @@ router.post('/translate-arr', function (req, res, next) {
 
 function translateText(text, convertLanguage, callback) {
   translate(text, { from: 'en', to: convertLanguage, raw: true }).then(res => {
-    console.log(res)
     return callback(res.text)
   }).catch(err => {
-    console.error(err);
     return callback('')
   });
 }

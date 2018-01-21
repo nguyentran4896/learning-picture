@@ -220,13 +220,6 @@ jQuery(function($) {
                     
                 }
             }
-
-        // Flip-box
-        $('.flip-card').hover(function(){
-            $(this).addClass('flip');
-        },function(){
-            $(this).removeClass('flip');
-        });
     };
 
     learnEnglish.home_slider = function() {

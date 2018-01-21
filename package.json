@@ -14,9 +14,12 @@
     "dm-file-uploader": "^1.0.2",
     "ejs": "~2.5.7",
     "express": "~4.15.5",
+    "free-google-image-search": "^1.0.0",
     "google-translate": "^2.0.5",
     "google-translate-api": "^2.3.0",
     "morgan": "~1.9.0",
-    "serve-favicon": "~2.4.5"
+    "node-fetch": "^1.7.3",
+    "serve-favicon": "~2.4.5",
+    "xmldom": "^0.1.27"
   }
 }
