@@ -43,6 +43,11 @@ function shareController($scope, $window, $firebaseObject, $firebaseArray, $http
   });
 
 
+  $scope.updateLanguage = function (languageCode, text) {
+    COMMON.setCookie('convertLanguage', languageCode)
+    COMMON.setCookie('languageText', text)
+    window.location.reload()
+  }
 
   $scope.setSelected = function (index, card) {
     if (card.userSelect) return;
