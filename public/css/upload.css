@@ -320,26 +320,39 @@
 
     .sc-count-down {
         background-color: #fff;
-        border-radius: 15px;
+        border-radius: 10px;
         font-size: 0;
-        padding: 30px;
-        max-width: 600px;
+        padding: 10px;
+        max-width: 150px;
         margin: auto;
+        text-align: center;
+        margin-top: 20px;
+        box-shadow: 1px 1px 6px 10px rgba(0,0,0,0.2);
     }
-    .sc-count-down .coming-soon {
-        margin: 0 -30px;
-    }
+
     .sc-count-down .main-count-wrapper {
-        width: 25%;
+        width: auto;
         display: inline-block;
-        vertical-align: top;
-        padding: 30px;
-        font-size: 25px;
+        vertical-align: middle;
+        font-size: 20px;
         text-align: center;
     }
+    .sc-count-down .main-count-wrapper:last-child .count:before {
+        content: ":";
+        display: inline-block;
+        margin-left: 5px;
+        margin-right: 5px;
+    }
     .sc-count-down .main-count-wrapper .time {
-        font-size: 40px;
+        font-size: 20px;
     }
     .sc-count-down .main-count-wrapper .stat-label {
         margin-top: 10px;
+        display: none;
+    }
+    .sc-count-down .coming-soon > img {
+        width: 30px;
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 10px;
     }

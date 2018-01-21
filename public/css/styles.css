@@ -1516,3 +1516,43 @@ a:focus {
 	font-style: italic;	
 	margin: 0 0 0 80px;
 }
+
+.wrapper-gamer {
+    position: fixed;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+    z-index: 10;
+    left: 15px;
+    font-size: 0;
+}
+
+.wrapper-gamer [class*="gamer-"] {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 6px 10px rgba(0,0,0,0.2);
+    min-width: 150px;
+}
+.wrapper-gamer .user-avatar {
+    margin-right: 10px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.wrapper-gamer .name {
+    width: -moz-calc(100% - 40px);
+    width: -webkit-calc(100% - 40px);
+    width: calc(100% - 40px);
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 16px;
+}
+.wrapper-gamer .user-point {
+    font-size: 16px;
+    text-align: right;
+}
+.wrapper-gamer .gamer-02 {
+    margin-top: 20px;
+}

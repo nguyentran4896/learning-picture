@@ -106,161 +106,88 @@
 								<img src="https://firebasestorage.googleapis.com/v0/b/elpicture-86fb4.appspot.com/o/images%2Fmountains.jpg?alt=media&token=e2359c6e-69da-4afd-bc35-4b5ca4e8ca39" alt="img">
 							</div>
 						</div>
-
-					<!-- <div class="container-fluid" style="font-size:20px; font-weight:bold" ng-show="!isChoosingImage">
-						<div ng-repeat="card in array"
-						ng-click="setSelected($index, card)"
-						class="col-xs-3 card" ng-class="{'active' : card.userSelect == userKey,
-																				'': !card.userSelect,
-																				'inactive': card.userSelect && card.userSelect != userKey,
-																				'wrong': card.isWrong && card.userSelect
-																			}"
-						style="height:100px;border:1px solid #000;">
-							{{ card.name }}
-						</div>
-					</div> -->
 					
-					<div class="list-items list-col-5" ng-show="!isChoosingImage">
-						<div class="item" ng-repeat="card in array">
-							<div 
-							ng-click="setSelected($index, card)"
-							class="card" ng-class="{'active' : card.userSelect == userKey,
-																					'': !card.userSelect,
-																					'inactive': card.userSelect && card.userSelect != userKey && !card.isWrong,
-																					'wrong': card.isWrong && card.userSelect
-																				}">
-								<div class="text">{{ card.name }}</div>
-							</div>
-						</div>
-							
-					</div>
-					
-					<div class="container-fluid">
-						<div class="pull-left">
-							<div class="user-name">
-								<img class="user-avatar" width="30px" style="border-radius:50%"
-								src="https://scontent-hkg3-1.xx.fbcdn.net/v/t1.0-9/18740419_1398808056874032_6423833359628514647_n.jpg?oh=89d30eede3cc2c6756a72ffe42d14f16&oe=5AE1ACB2" alt="">
-								Nguyen 
-							</div>
-							<div class="user-point">Point: {{ 13 + (array | filter:{'userSelect': userKey}).length }}</div>
-						</div>
-
-						<div class="pull-right">
-							<div class="user-name">Nhan
-									<img class="user-avatar" width="30px" style="border-radius:50%"
-									src="https://scontent-hkg3-1.xx.fbcdn.net/v/t31.0-1/c282.0.960.960/p960x960/10506738_10150004552801856_220367501106153455_o.jpg?oh=089d9dc6f4956b95e8d8e73fac1c7ea5&oe=5ADA1212" alt="">
+						<div class="list-items list-col-5" ng-show="!isChoosingImage">
+							<div class="item" ng-repeat="card in array">
+								<div 
+								ng-click="setSelected($index, card)"
+								class="card" ng-class="{'active' : card.userSelect == userKey,
+																						'': !card.userSelect,
+																						'inactive': card.userSelect && card.userSelect != userKey && !card.isWrong,
+																						'wrong': card.isWrong && card.userSelect
+																					}">
+									<div class="text">{{ card.name }}</div>
 								</div>
-							<div class="user-point">Point: {{ 18 + (array | filter:{'-userSelect': userKey}).length }}</div>
+							</div>
+								
 						</div>
-					</div>
-					
-					<!-- Count Down -->
-					<div class="sc-count-down st-georgia text-c">
-					    <div class="coming-soon count-down" data-expire="2018-1-21 9:00">
-					        <div class="main-count-wrapper">
-					            <div class="main-count">
-					                <div class="time days flip">
-					                    <span class="count curr top">00</span>
-					                </div>
-					                <div class="stat-label">days</div>
-					            </div>
-					        </div>
-					        <div class="main-count-wrapper">
-					            <div class="main-count">
-					                <div class="time hours flip">
-					                    <span class="count curr top">00</span>
-					                </div>
-					                <div class="stat-label">hours</div>
-					            </div>
-					        </div>
-					        <div class="main-count-wrapper">
-					            <div class="main-count">
-					                <div class="time minutes flip">
-					                    <span class="count curr top">00</span>
-					                </div>
-					                <div class="stat-label">mins</div>
-					            </div>
-					        </div>
-					        <div class="main-count-wrapper">
-					            <div class="main-count">
-					                <div class="time seconds flip">
-					                    <span class="count curr top">00</span>
-					                </div>
-					                <div class="stat-label">secs</div>
-					            </div>
-					        </div>
-					    </div>
-					</div>
+						
+				
 
 					</div>
 				</section>
 			</div>
 			<!-- BUTTON BACK TO TOP-->
 			<div id="back-top"><a href="#top" class="link"><i class="fa fa-angle-double-up"></i></a></div>
-		</div>
-
-
-
-	<!-- <div class="livechat animated fadeInUp">
-		<div class="panel panel-primary panel-success">
-				<div class="panel-heading" data-toggle="collapse" data-target="#panel-body-chat" style="cursor:pointer;">
-					<span ng-cloak class="unseen-badge badge badge-danger" ng-show="nonUserBadge.$value != 0">{{ nonUserBadge.$value }}</span>
-					<i class="glyphicon glyphicon-comment" ng-show="!nonUserBadge.$value != 0"></i>
-					<span class="live-chat-text"> Live Chat</span>
-					<i class="fa fa-window-minimize hide" style="float:right;"></i>
-				</div>
-				<div class="collapse" id="panel-body-chat">
-					<div class="panel-body panel-body-chat" style="overflow-y:auto">
-						<ul class="chat" ng-repeat="chat in liveChats | orderBy : timeStamp : true">
-							<li class="left clearfix" ng-if="chat.isServer">
-								<span class="chat-img pull-left">
-									<div class="img-circle" style="width: 40px; height: 40px;">
-										<img src="/images/logo.png" alt="User Avatar" style="width: 40px; height: 40px">
-									</div>
-								</span>
-								<div class="chat-body clearfix">
-									<div class="header">
-										<strong class="primary-font" style="color: #176075;">Apitiny</strong>
-									</div>
-									<p class="bubble">{{ chat.message }}</p>
-									<small class="pull-right text-muted" style="color:#4a4a4a;">{{ chat.timeStamp | date: "HH:mm" }}</small>
-								</div>
-							</li>
-							<li class="right clearfix" ng-if="!chat.isServer">
-								<span class="chat-img pull-right">
-									<img src="/images/non-user-icon.png" alt="User Avatar" class="img-circle" style="width: 40px; height: 40px;">
-								</span>
-								<div class="chat-body clearfix">
-									<div class="header">
-										<strong class="pull-right primary-font" style="color: #4a4a4a;width:100%;text-align:right">{{ nonUserName }}</strong>
-									</div>
-									<p class="bubble">{{ chat.message }}</p>
-									<small class="pull-left text-muted" style="color:grey;">
-										{{ chat.timeStamp | date: "HH:mm" }}</small>
-								</div>
-							</li>
-
-						</ul>
+			<div class="wrapper-gamer">
+				<div class="gamer-01">
+					<div class="user-name">
+						<img class="user-avatar" width="30px" style="border-radius:50%"
+						src="https://scontent-hkg3-1.xx.fbcdn.net/v/t1.0-9/18740419_1398808056874032_6423833359628514647_n.jpg?oh=89d30eede3cc2c6756a72ffe42d14f16&oe=5AE1ACB2" alt="">
+						<div class="name">Nguyen</div>
 					</div>
-					<div class="panel-footer">
-						<div class="message-typing" ng-if="isServerTyping">
-							Apitiny đang nhập...
-						</div>
-
-						<div class="input-group">
-							<textarea elastic id="btn-textarea-message" rows="1" ng-model="nowMessage" class="form-control input-sm" placeholder="Nhập tin nhắn..."
-								ng-keyup="!$event.shiftKey && $event.keyCode == 13 && sendNonUserChat(nowMessage)"></textarea>
-							<span class="input-group-btn">
-								<button class="btn btn-warning btn-sm" id="btn-chat" ng-click="sendNonUserChat(nowMessage)">
-									Gửi</button>
-							</span>
-
-						</div>
-					</div>
+					<div class="user-point">Point: {{ 13 + (array | filter:{'userSelect': userKey}).length }}</div>
 				</div>
-		</div>
-	</div> -->
 
+				<div class="gamer-02">
+					<div class="user-name">
+						<img class="user-avatar" width="30px" style="border-radius:50%"
+						src="https://scontent-hkg3-1.xx.fbcdn.net/v/t31.0-1/c282.0.960.960/p960x960/10506738_10150004552801856_220367501106153455_o.jpg?oh=089d9dc6f4956b95e8d8e73fac1c7ea5&oe=5ADA1212" alt="">
+						<div class="name">Nhan</div>
+					</div>
+					<div class="user-point">Point: {{ 18 + (array | filter:{'-userSelect': userKey}).length }}</div>
+				</div>
+
+				<!-- Count Down -->
+				<div class="sc-count-down st-georgia text-c">
+				    <div class="coming-soon count-down" data-expire="2018-1-21 12:45">
+				    	<img src="images/more-image/alarm-clock.png" width="20" alt="">
+				        <div class="main-count-wrapper hidden">
+				            <div class="main-count">
+				                <div class="time days flip">
+				                    <span class="count curr top">00</span>
+				                </div>
+				                <div class="stat-label">days</div>
+				            </div>
+				        </div>
+				        <div class="main-count-wrapper hidden">
+				            <div class="main-count">
+				                <div class="time hours flip">
+				                    <span class="count curr top">00</span>
+				                </div>
+				                <div class="stat-label">hours</div>
+				            </div>
+				        </div>
+				        <div class="main-count-wrapper">
+				            <div class="main-count">
+				                <div class="time minutes flip">
+				                    <span class="count curr top">00</span>
+				                </div>
+				                <div class="stat-label">mins</div>
+				            </div>
+				        </div>
+				        <div class="main-count-wrapper">
+				            <div class="main-count">
+				                <div class="time seconds flip">
+				                    <span class="count curr top">00</span>
+				                </div>
+				                <div class="stat-label">secs</div>
+				            </div>
+				        </div>
+				    </div>
+				</div>
+			</div>
+		</div>
 
   <div id="live-chat">
       <header class="clearfix">
