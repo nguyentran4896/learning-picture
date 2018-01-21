@@ -30,6 +30,8 @@ function shareController($scope, $window, $firebaseObject, $firebaseArray, $http
 
   $scope.series = [];
   $scope.isChoosingImage = false;
+  $scope.currentTime = new Date(new Date().getTime() + 200000)
+  $scope.timer = $scope.currentTime.getFullYear() + '-' + ($scope.currentTime.getMonth()+1) + '-' + $scope.currentTime.getDate() + ' ' + ($scope.currentTime.getUTCHours() + 7) + ':' + $scope.currentTime.getUTCMinutes()
   $scope.languageText = COMMON.getCookie('languageText')
   $scope.userName = COMMON.getCookie('userName')
 

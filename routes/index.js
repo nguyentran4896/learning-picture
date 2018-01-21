@@ -4,7 +4,7 @@ var async = require('async');
 const translate = require('google-translate-api');
 
 /* GET home page. */
-router.get('/', function (req, res, next) {
+router.get('/mapping-word', function (req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
@@ -18,6 +18,10 @@ router.get('/verser', function (req, res, next) {
 
 router.get('/search', function (req, res, next) {
   res.render('search', { title: 'Search By Photo' });
+});
+
+router.get('/', function(req, res, next) {
+  res.render('homepage', { title: 'Homepage' });
 });
 
 // combine text and translated text in one object
