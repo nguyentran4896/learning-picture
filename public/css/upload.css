@@ -403,3 +403,31 @@
  		margin-right: 7px;
  		vertical-align: middle;
  	}
+
+
+
+    .sc-count-down {
+        background-color: #fff;
+        border-radius: 15px;
+        font-size: 0;
+        padding: 30px;
+        max-width: 600px;
+        margin: auto;
+    }
+    .sc-count-down .coming-soon {
+        margin: 0 -30px;
+    }
+    .sc-count-down .main-count-wrapper {
+        width: 25%;
+        display: inline-block;
+        vertical-align: top;
+        padding: 30px;
+        font-size: 25px;
+        text-align: center;
+    }
+    .sc-count-down .main-count-wrapper .time {
+        font-size: 40px;
+    }
+    .sc-count-down .main-count-wrapper .stat-label {
+        margin-top: 10px;
+    }
