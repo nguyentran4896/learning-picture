@@ -253,9 +253,11 @@ a:focus {
 }
 
 .header-main .logo-wrapper a {
-    font-size: 42px;
+    font-size: 40px;
     font-family: 'Pacifico', cursive;
-    color: #fff
+    color: #fff;
+    line-height: 100px;
+    display: block;
 }
 
 .header-main .logo-wrapper .logo img {
