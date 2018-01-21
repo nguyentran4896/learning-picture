@@ -20,7 +20,7 @@ function homeController($scope, $window, $firebaseObject, $firebaseArray, $http)
   firebase.initializeApp(firebaseConfig);
   var storageRef = firebase.storage().ref();
   var databaseRef = firebase.database().ref();
-
+  $scope.parseInt = parseInt;
   $scope.series = [];
   $scope.isChoosingImage = true;
 
@@ -111,7 +111,7 @@ function homeController($scope, $window, $firebaseObject, $firebaseArray, $http)
       function (response) {
         let results = response.outputs[0].data.concepts;
 
-        $.post('/translate-combine', {strArr: JSON.stringify(results.map(x=>x.name).splice(0,10)), convertLanguage: COMMON.getCookie('convertLanguage')}, function(res){
+        $.post('/translate-combine', {strArr: JSON.stringify(results.map(x=>x.name).splice(0,10)), value: JSON.stringify(results.map(x=>x.value).splice(0,10)), convertLanguage: COMMON.getCookie('convertLanguage')}, function(res){
           $scope.cardArr = res.arr
           console.log($scope.cardArr)
           $scope.$apply()

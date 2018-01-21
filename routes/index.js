@@ -28,14 +28,17 @@ router.get('/', function(req, res, next) {
 router.post('/translate-combine', function (req, res, next) {
   let arr = []
   let convertLanguage = req.body.convertLanguage
+  let value= JSON.parse(req.body.value)
+  let count = 0
 
   async.eachSeries(JSON.parse(req.body.strArr), function (text, callback) {
     translateText(text, convertLanguage, function (str) {
       arr.push({
         text: text,
-        transated: str
+        transated: str,
+        value: value[count]
       })
-
+      count++
       return callback()
     })
   }, function (err) {
