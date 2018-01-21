@@ -40,7 +40,7 @@
 	<script src="/js/google_speech.js"></script>
 </head>
 
-<body ng-controller="searchController">
+<body ng-controller="searchController" class="pre-loader">
 	<!--BEGIN PAGE LOADER-->
 	<div class="body-wrapper">
 		<!-- WRAPPER CONTENT-->
@@ -50,6 +50,12 @@
 				<div class="bg-transparent">
 					<div class="header-topbar">
 		          <div class="container">
+              		<ul class="topbar-left list-unstyled list-inline">
+                      <li>
+                      	<img class="user-avatar" width="30" src="https://scontent-hkg3-1.xx.fbcdn.net/v/t1.0-9/18740419_1398808056874032_6423833359628514647_n.jpg?oh=89d30eede3cc2c6756a72ffe42d14f16&oe=5AE1ACB2" alt="">
+                      	<a href="#" class="link">{{userName}}</a>
+                      </li>
+                  </ul>
 		              <ul class="topbar-right list-unstyled list-inline style-2">
 		                  <li class="sub-menu"><a href="javascript:void(0)" class="link"> <span>{{ languageText }}</span><i class="icons-2 fa fa-angle-double-down"></i></a>
 		                      <ul class="dropdown-topbar">
@@ -135,19 +141,31 @@
 								</div>
 							</div>
 						</div>
+					
+						<div class="wrapper-review-image text-center">
+							<div class="review-image">
+								<img src="" alt="img">
+							</div>
 						</div>
-
-						<div class="flip-card panel" ng-repeat="card in cardArr">
-              <div class="front">
-                <div class="pad">
-                    <h2>{{card.text}}</h2>
-                </div>
-              </div>
-              <div class="back">
-                  <div class="pad">
-                  <h2>{{card.transated}}</h2></div>
-              </div>
-            </div>
+						<div class="list-items list-col-5">
+							<div class="item" ng-repeat="card in cardArr">
+								<div class="flip-card panel">
+									<div class="front">
+										<div class="pad">
+											{{card.text}}
+										</div>
+									</div>
+									<div class="back">
+										<div class="pad">
+											{{card.transated}}
+										</div>
+										<div class="speaker" ng-click='speakWord(card.text)'><img src="images/more-image/megaphone.png" alt=""></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+						
 						<!-- Flip card -->
 					</div>
 				</section>
@@ -158,6 +176,12 @@
 					<i class="fa fa-angle-double-up"></i>
 				</a>
 			</div>
+		</div>
+	</div>
+	<div class="wrapper-loader-dots">
+		<div class="sk-chasing-dots">
+			<div class="sk-child sk-dot1"></div>
+			<div class="sk-child sk-dot2"></div>
 		</div>
 	</div>
 	<!-- LIBRARY JS-->

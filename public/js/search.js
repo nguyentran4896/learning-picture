@@ -12,7 +12,8 @@ angular
   .controller('searchController', ['$scope', '$window', '$firebaseObject', '$firebaseArray', '$http', homeController]);
 
 const app = new Clarifai.App({
-  apiKey: 'ec1d1ec98ec3403fb91c39bcb7a93f49'
+  //apiKey: 'ec1d1ec98ec3403fb91c39bcb7a93f49' //Key luc
+  apiKey: 'e59b033ef81c47de963a93e9cb7e101a' //Key Nguyen
 });
 
 function homeController($scope, $window, $firebaseObject, $firebaseArray, $http) {
@@ -24,6 +25,7 @@ function homeController($scope, $window, $firebaseObject, $firebaseArray, $http)
   $scope.isChoosingImage = true;
 
   $scope.languageText = COMMON.getCookie('languageText')
+  $scope.userName = COMMON.getCookie('userName')
 
   $scope.array = $firebaseArray(firebase.database().ref());
 
@@ -32,7 +34,6 @@ function homeController($scope, $window, $firebaseObject, $firebaseArray, $http)
       uploadFileToFirebase(file)
     }
   })
-
 
   $scope.uploadImage = function (fileInput) {
     let file = $(fileInput)[0].files[0]
@@ -129,7 +130,7 @@ function homeController($scope, $window, $firebaseObject, $firebaseArray, $http)
           $scope.cardArr = res.arr
           console.log($scope.cardArr)
           $scope.$apply()
-          $('body').addClass('loader');
+          $('body').removeClass('loader');
           $('.flip-card').hover(function(){
               $(this).addClass('flip');
           },function(){

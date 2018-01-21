@@ -12,8 +12,9 @@ angular
   .controller('homeController', ['$scope', '$window', '$firebaseObject', '$firebaseArray', '$http', homeController]);
 
 const app = new Clarifai.App({
-  // apiKey: 'e59b033ef81c47de963a93e9cb7e101a'
-  apiKey: ''
+  //apiKey: 'e59b033ef81c47de963a93e9cb7e101a' //Key Nguyen
+  apiKey: 'ec1d1ec98ec3403fb91c39bcb7a93f49' //Key Luc
+  //apiKey: ''
 });
 
 function homeController($scope, $window, $firebaseObject, $firebaseArray, $http) {
@@ -38,7 +39,6 @@ function homeController($scope, $window, $firebaseObject, $firebaseArray, $http)
       uploadFileToFirebase(file)
     }
   })
-
 
   $scope.uploadImage = function (fileInput) {
     let file = $(fileInput)[0].files[0]
@@ -122,7 +122,7 @@ function homeController($scope, $window, $firebaseObject, $firebaseArray, $http)
         $.post('/translate-arr', {strArr: JSON.stringify(results.map(x=>x.name).splice(0,5)), convertLanguage: COMMON.getCookie('convertLanguage')}, function(res){
           $scope.cardArr = res.arr
           $scope.$apply()
-          $('body').addClass('loader');
+          $('body').removeClass('loader');
         })
       }
     );
