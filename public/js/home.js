@@ -27,6 +27,7 @@ function homeController($scope, $window, $firebaseObject, $firebaseArray, $http)
 
   $scope.array = $firebaseArray(firebase.database().ref());
   $scope.languageText = COMMON.getCookie('languageText')
+  $scope.userName = COMMON.getCookie('userName')
 
   $scope.updateLanguage = function (languageCode, text) {
     COMMON.setCookie('convertLanguage', languageCode)

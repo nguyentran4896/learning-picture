@@ -12,8 +12,8 @@ var engApp = angular
   .controller('shareController', ['$scope', '$window', '$firebaseObject', '$firebaseArray', '$http', 'Message', shareController]);
 
 const app = new Clarifai.App({
-  apiKey: 'e59b033ef81c47de963a93e9cb7e101a' //Key Nguyen
-  //apiKey: 'ec1d1ec98ec3403fb91c39bcb7a93f49' //Key luc
+  // apiKey: 'e59b033ef81c47de963a93e9cb7e101a' //Key Nguyen
+  apiKey: 'ec1d1ec98ec3403fb91c39bcb7a93f49' //Key luc
 });
 
 firebase.initializeApp(firebaseConfig);
@@ -31,6 +31,7 @@ function shareController($scope, $window, $firebaseObject, $firebaseArray, $http
   $scope.series = [];
   $scope.isChoosingImage = false;
   $scope.languageText = COMMON.getCookie('languageText')
+  $scope.userName = COMMON.getCookie('userName')
 
   dataRef.on('value', function (snapshot) {
     $scope.array = snapshot.val().splice(0, 10)
