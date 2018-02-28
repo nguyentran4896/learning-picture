@@ -11,13 +11,24 @@
         ]
     },
     "upload": {
-        "title": "Upload Page",
-        "nav": "Upload Page",
+        "title": "Game 01",
+        "nav": "Game 01",
         "url_style": [
         ],
         "url_script": [
             {
                 "src": "assets/libs/parallax/jquery.parallax-scroll.min.js"
+            }
+        ]
+    },
+    "flip-card": {
+        "title": "Game 02",
+        "nav": "Game 02",
+        "url_style": [
+        ],
+        "url_script": [
+            {
+                
             }
         ]
     }

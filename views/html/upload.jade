@@ -1,57 +1,36 @@
 section.wrapper-upload.padding-top-100.padding-bottom-100
 	.container
-		div(ng-show="isChoosingImage")
-			#url-area.url-area
-				form.main-form
-					.row
-						.col-sm-12
-							.form-group.text-center
-								h1 Try your own image
-								p Give us a direct link to a file on the web
-								input.form-control.border-radius-10(type="text", placeholder="Paste URL")
-								p.help-block.text-danger
-						//- #submit.margin-top-20
-						//-     button.btn.btn-maincolor(type="submit") Submit
-			#drop-area.dm-uploader.text-center(style='height: 300px')
-				.vertical-align
-					h1 Drag & drop Images here
-					.btn.btn-maincolor
-						span Open the file Browser
-						input#file(type='file', title='Click to add Files', name='file', onchange='angular.element(this).scope().uploadImage(this)', multiple='')
-		.review-image.has-image
-			img(src='https://firebasestorage.googleapis.com/v0/b/elpicture-86fb4.appspot.com/o/images%2Fmountains.jpg?alt=media&token=d18938bb-d22a-4dcb-a372-e46aa4ed5841', alt='img')
-		
 		.list-keywords
 			.item
-				.keyword.ng-binding.ng-scope(idKey="8" ng-repeat="card in cardArr", data-parallax='{"x": 15, "y": -15, "rotateZ": -15}') Competition
+				.keyword(idKey="8" data-parallax='{"x": 15, "y": -15, "rotateZ": -15}') Competition
 			.item
-				.keyword.ng-binding.ng-scope(idKey="2" ng-repeat="card in cardArr", data-parallax='{"x": 15, "y": -15, "rotateZ": 15}') exhibition
+				.keyword(idKey="2" data-parallax='{"x": 15, "y": -15, "rotateZ": 15}') exhibition
 			.item
-				.keyword.ng-binding.ng-scope(idKey="6" ng-repeat="card in cardArr", data-parallax='{"x": 15, "y": -15, "rotateZ": 15}') man
+				.keyword(idKey="6" data-parallax='{"x": 15, "y": -15, "rotateZ": 15}') man
 			.item
-				.keyword.ng-binding.ng-scope(idKey="1" ng-repeat="card in cardArr", data-parallax='{"x": 15, "y": -15, "rotateZ": -15}') portrait
+				.keyword(idKey="1" data-parallax='{"x": 15, "y": -15, "rotateZ": -15}') portrait
 			.item
-				.keyword.ng-binding.ng-scope(idKey="3" ng-repeat="card in cardArr", data-parallax='{"x": 15, "y": -15, "rotateZ": -15}') education
+				.keyword(idKey="3" data-parallax='{"x": 15, "y": -15, "rotateZ": -15}') education
 			.item
-				.keyword.ng-binding.ng-scope(idKey="1" ng-repeat="card in cardArr", data-parallax='{"x": 15, "y": -15, "rotateZ": 15}') adult
+				.keyword(idKey="1" data-parallax='{"x": 15, "y": -15, "rotateZ": 15}') adult
 			.item
-				.keyword.ng-binding.ng-scope(idKey="6" ng-repeat="card in cardArr", data-parallax='{"x": 15, "y": -15, "rotateZ": 15}') festival
+				.keyword(idKey="6" data-parallax='{"x": 15, "y": -15, "rotateZ": 15}') festival
 			.item
-				.keyword.ng-binding.ng-scope(idKey="2" ng-repeat="card in cardArr", data-parallax='{"x": 15, "y": -15, "rotateZ": -15}') fashion
+				.keyword(idKey="2" data-parallax='{"x": 15, "y": -15, "rotateZ": -15}') fashion
 			.item
-				.keyword.ng-binding.ng-scope(idKey="5" ng-repeat="card in cardArr", data-parallax='{"x": 15, "y": -15, "rotateZ": 15}') wear
+				.keyword(idKey="5" data-parallax='{"x": 15, "y": -15, "rotateZ": 15}') wear
 			.item
-				.keyword.ng-binding.ng-scope(idKey="7" ng-repeat="card in cardArr", data-parallax='{"x": 15, "y": -15, "rotateZ": 15}') university
+				.keyword(idKey="7" data-parallax='{"x": 15, "y": -15, "rotateZ": 15}') university
 			.item
-				.keyword.ng-binding.ng-scope(idKey="5" ng-repeat="card in cardArr", data-parallax='{"x": -15, "y": 15, "rotateZ": -15}') stock
+				.keyword(idKey="5" data-parallax='{"x": -15, "y": 15, "rotateZ": -15}') stock
 			.item
-				.keyword.ng-binding.ng-scope(idKey="4" ng-repeat="card in cardArr", data-parallax='{"x": 15, "y": -15, "rotateZ": -15}') International
+				.keyword(idKey="4" data-parallax='{"x": 15, "y": -15, "rotateZ": -15}') International
 			.item
-				.keyword.ng-binding.ng-scope(idKey="7" ng-repeat="card in cardArr", data-parallax='{"x": 15, "y": -15, "rotateZ": 15}') industry
+				.keyword(idKey="7" data-parallax='{"x": 15, "y": -15, "rotateZ": 15}') industry
 			.item
-				.keyword.ng-binding.ng-scope(idKey="8" ng-repeat="card in cardArr", data-parallax='{"x": 15, "y": -15, "rotateZ": -15}') school
+				.keyword(idKey="8" data-parallax='{"x": 15, "y": -15, "rotateZ": -15}') school
 			.item
-				.keyword.ng-binding.ng-scope(idKey="3" ng-repeat="card in cardArr", data-parallax='{"x": -15, "y": -15, "rotateZ": -15}') business
+				.keyword(idKey="3" data-parallax='{"x": -15, "y": -15, "rotateZ": -15}') business
 			.item
-				.keyword.ng-binding.ng-scope(idKey="4" ng-repeat="card in cardArr", data-parallax='{"x": 15, "y": -15, "rotateZ": 15}') people
+				.keyword(idKey="4" data-parallax='{"x": 15, "y": -15, "rotateZ": 15}') people
 	

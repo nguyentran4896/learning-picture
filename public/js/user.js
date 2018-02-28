@@ -12,7 +12,8 @@ angular
   .controller('userController', ['$scope', '$window', '$firebaseObject', '$firebaseArray', '$http', userController]);
 
 const app = new Clarifai.App({
-  apiKey: 'e59b033ef81c47de963a93e9cb7e101a'
+  //apiKey: 'e59b033ef81c47de963a93e9cb7e101a' //Key Nguyen
+  apiKey: 'df8c5b67be974585af93bacd13efe561' //Key Nhan
 });
 
 function userController($scope, $window, $firebaseObject, $firebaseArray, $http) {

@@ -179,3 +179,103 @@
 			}
 		}
 	}
+.wrapper-verser {
+ 		min-height: 100vh;
+ 		background-image: url("../images/background-full/bg-01.jpg");
+ 		background-repeat: no-repeat;
+ 		background-size: 100% auto;
+    	background-attachment: fixed;
+ 	}
+
+ 	.list-items {
+ 		display: block;
+ 		position: relative;
+ 		margin: 0 -15px;
+ 		font-size: 0;
+ 		margin-top: 100px;
+ 	}
+ 	.list-items .item {
+ 		display: inline-block;
+ 		vertical-align: top;
+ 		padding: 0 15px;
+ 		margin-top: 30px;
+ 	}
+ 	.list-items.list-col-4 .item {
+ 		width: 25%;
+ 	}
+ 	.list-items.list-col-5 .item {
+ 		width: 20%;
+ 	}
+ 	.list-items.list-col-4 .item:nth-child(-n + 4) {
+ 		margin-top: 0;
+ 	}
+ 	.list-items.list-col-5 .item:nth-child(-n + 5) {
+ 		margin-top: 0;
+ 	}
+ 	.list-items .item .card {
+ 		position: relative;
+ 		border-radius: 15px;
+ 		background-color: #c7ff9d;
+ 		cursor: pointer;
+ 	}
+ 	.list-items .item .card:before {
+		content: '';
+		display: block;
+		padding-top: 100%;
+ 	}
+ 	.list-items .item .card:after {
+ 		content: '';
+ 		position: absolute;
+ 		top: 5px;
+ 		bottom: 5px;
+ 		left: 5px;
+ 		right: 5px;
+ 		border: 2px solid #000;
+ 		border: 3px solid #a1dc89;
+    	border-radius: 15px;
+ 	}
+ 	.list-items .item .card .text {
+ 		position: absolute;
+ 		top: 50%;
+ 		left: 50%;
+ 		-webkit-transform: translate(-50%, -50%);
+ 		-ms-transform: translate(-50%, -50%);
+ 		-o-transform: translate(-50%, -50%);
+ 		transform: translate(-50%, -50%);
+ 		text-transform: capitalize;
+ 		font-weight: 700;
+ 		z-index: 5;
+ 		color: #131313;
+ 		font-size: 22px;
+ 	}
+
+ 	.list-items .item .card.active:after {
+ 		background-image: url("/images/more-image/checked.png");
+ 	}
+ 	.list-items .item .card.inactive:after {
+ 		background-image: url("/images/more-image/cancel.png");
+ 		opacity: 0.6;
+ 	}
+ 	.list-items .item .card.wrong:after {
+ 		background-image: url("/images/more-image/thumb-down.png");
+ 		opacity: 0.6;
+ 	}
+ 	.list-items .item .card:after {
+		background-repeat: no-repeat;
+ 		background-size: 0;
+ 		background-position: center;
+ 		-webkit-transition: all 0.3s ease;
+ 		-o-transition: all 0.3s ease;
+ 		transition: all 0.3s ease;
+
+ 	}
+ 	.list-items .item .card.active:after,
+ 	.list-items .item .card.inactive:after,
+ 	.list-items .item .card.wrong:after {
+		background-size: 60%;
+ 	}
+ 	.list-items .item .card.inactive,
+ 	.list-items .item .card.wrong {
+ 		cursor: not-allowed;
+ 	}
+ 	

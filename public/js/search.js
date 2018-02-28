@@ -12,7 +12,8 @@ angular
   .controller('searchController', ['$scope', '$window', '$firebaseObject', '$firebaseArray', '$http', homeController]);
 
 const app = new Clarifai.App({
-  apiKey: 'ec1d1ec98ec3403fb91c39bcb7a93f49' //Key luc
+  //apiKey: 'ec1d1ec98ec3403fb91c39bcb7a93f49' //Key luc
+  apiKey: 'df8c5b67be974585af93bacd13efe561' //Key Nhan
   // apiKey: 'e59b033ef81c47de963a93e9cb7e101a' //Key Nguyen
 });
 
